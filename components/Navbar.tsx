@@ -1,10 +1,11 @@
 import MenuIcon from "@/icons/MenuIcon";
 import SearchIcon from "@/icons/SearchIcon";
 import { ThemeToggle } from "./ThemeToggle";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,43 +29,37 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <Link href="/recent">Recent</Link>
             </li>
+
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <Link href="/trending">Trending</Link>
             </li>
+
             <li>
-              <a>Item 3</a>
+              <Link href="/popular">Popular</Link>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">
+        <Link href="/" className="btn btn-ghost normal-case text-xl">
           <div className="flex">
             <p>anim</p>
             <p className="text-red-500">Me</p>
           </div>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 font-semibold">
           <li>
-            <a>Recent</a>
+            <Link href="/recent">Recent</Link>
           </li>
 
           <li>
-            <a>Trending</a>
+            <Link href="/trending">Trending</Link>
           </li>
 
           <li>
-            <a>Popular</a>
+            <Link href="/popular">Popular</Link>
           </li>
         </ul>
       </div>

@@ -1,5 +1,10 @@
+import Trending from "@/components/Trending";
 import React from "react";
 
 export default function TrendingPage() {
-  return <div>TrendingPage</div>;
+  return (
+    <div>
+      <Trending />
+    </div>
+  );
 }

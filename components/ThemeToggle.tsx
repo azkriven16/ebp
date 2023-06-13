@@ -2,9 +2,9 @@
 import React from "react";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = React.useState("light");
+  const [theme, setTheme] = React.useState("dark");
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "light" ? "dark" : "light");
   };
   // initially set the theme and "listen" for changes to apply them to the HTML tag
   React.useEffect(() => {
@@ -14,7 +14,7 @@ export function ThemeToggle() {
     }
   }, [theme]);
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate btn btn-ghost normal-case text-xl">
       <input onClick={toggleTheme} type="checkbox" />
       <div className="swap-on">
         <svg
