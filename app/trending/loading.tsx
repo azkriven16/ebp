@@ -1,6 +1,6 @@
 import Loader from "@/components/Loader";
 
-export default async function PopularPageLoader() {
+export default async function TrendingPageLoader() {
   return (
     <div className="container mx-auto max-w-5xl p-6">
       <div className="mb-4 w-64 h-10 bg-base-300 rounded skeleton"></div>

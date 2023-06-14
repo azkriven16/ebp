@@ -1,22 +1,32 @@
 import Link from "next/link";
+import AnimeCard from "./AnimeCard";
 
-type Anime = {
+interface Anime {
   id: string;
   malId: number;
   title: {
     romaji: string;
+    english: string;
     native: string;
     userPreferred: string;
   };
   image: string;
-  rating: number | null;
+  trailer: {
+    id: string;
+    site: string;
+    thumbnail: string;
+  };
+  description: string;
+  status: string;
+  cover: string;
+  rating: number;
+  releaseDate: number;
   color: string | null;
-  episodeId: string;
-  episodeTitle: string;
-  episodeNumber: number;
   genres: string[];
+  totalEpisodes: number;
+  duration: number;
   type: string;
-};
+}
 
 async function getData() {
   const res = await fetch("https://api.consumet.org/meta/anilist/trending");
@@ -32,28 +42,20 @@ async function getData() {
 
 export default async function Trending() {
   const data = await getData();
-  console.log(data.results);
   return (
-    <section className="max-w-4xl mx-auto px-10">
-      <div className="flex justify-center flex-col">
-        <h1 className="pb-4 text-2xl ml-2">Trending</h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 place-items-center">
-          {data.results.map((anime: Anime) => {
-            return (
-              <Link key={anime.id} href={anime.id} className="min-w-32 w-40">
-                <img
-                  src={anime.image}
-                  alt={anime.title.userPreferred + " image"}
-                  className="object-cover h-60 w-full"
-                />
-                <p className="truncate h-8 py-2">
-                  {anime.title.userPreferred || anime.title.romaji}
-                </p>
-              </Link>
-            );
-          })}
-        </div>
+    <div className="container mx-auto max-w-5xl p-6">
+      <h2 className="text-2xl font-bold mb-4">Trending Anime</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {data.results.map((anime: Anime) => {
+          return <AnimeCard anime={anime} />;
+        })}
       </div>
-    </section>
+      <div className="join grid grid-cols-2 max-w-xs mx-auto mt-10">
+        <button className="join-item btn btn-outline btn-sm">
+          Previous page
+        </button>
+        <button className="join-item btn btn-outline btn-sm">Next</button>
+      </div>
+    </div>
   );
 }
