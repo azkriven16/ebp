@@ -1,5 +1,3 @@
-import MenuIcon from "@/icons/MenuIcon";
-import SearchIcon from "@/icons/SearchIcon";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
