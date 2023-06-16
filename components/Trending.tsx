@@ -1,32 +1,5 @@
 import Link from "next/link";
-import AnimeCard from "./AnimeCard";
-
-interface Anime {
-  id: string;
-  malId: number;
-  title: {
-    romaji: string;
-    english: string;
-    native: string;
-    userPreferred: string;
-  };
-  image: string;
-  trailer: {
-    id: string;
-    site: string;
-    thumbnail: string;
-  };
-  description: string;
-  status: string;
-  cover: string;
-  rating: number;
-  releaseDate: number;
-  color: string | null;
-  genres: string[];
-  totalEpisodes: number;
-  duration: number;
-  type: string;
-}
+import AnimeCard, { Anime } from "./AnimeCard";
 
 async function getData() {
   const res = await fetch("https://api.consumet.org/meta/anilist/trending");
