@@ -20,6 +20,7 @@ async function getData({ page }: { page: number }) {
 export default async function Recent() {
   const page = recentPageStore((state) => state.page);
   const data = await getData({ page });
+  console.log(data.results[0].episodeID);
   return (
     <div className="container mx-auto max-w-5xl p-6">
       <div className="flex justify-between">
