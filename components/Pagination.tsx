@@ -6,8 +6,8 @@ export default function Pagination() {
   const increase = recentPageStore((state) => state.increase);
   const decrease = recentPageStore((state) => state.decrease);
   return (
-    <div className="join grid grid-cols-2 max-w-xs gap-4">
-      <button onClick={() => decrease(1)} className="join-item">
+    <div className="join grid grid-cols-2 max-w-xs mb-10">
+      <button onClick={() => decrease(1)} className="join-item flex btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -22,8 +22,10 @@ export default function Pagination() {
             d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
           />
         </svg>
+        prev
       </button>
-      <button onClick={() => increase(1)} className="join-item">
+      <button onClick={() => increase(1)} className="join-item btn">
+        next
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

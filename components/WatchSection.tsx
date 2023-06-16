@@ -18,20 +18,24 @@ export default function WatchSection() {
   const airDate = new Date(episodeDetails.airDate).toLocaleDateString();
 
   // get prev ep data
-  const prevEp = currentAnime.episodes.filter(
+  const prevEp = currentAnime.episodes.findLast(
     (obj) => obj.number < episodeDetails.number
   );
-  const prevEpData = prevEp[0];
-  const prevEpAirDate = new Date(prevEpData?.airDate).toLocaleDateString();
+
+  const prevEpAirDate = prevEp
+    ? new Date(prevEp.airDate ?? "").toLocaleDateString()
+    : "";
 
   // get next ep data
-  const nextEp = currentAnime.episodes.filter(
+  const nextEp = currentAnime.episodes.findLast(
     (obj) => obj.number > episodeDetails.number
   );
-  const nextEpData = nextEp[0];
-  const nextEpAirDate = new Date(nextEpData?.airDate).toLocaleDateString();
 
-  console.log(prevEpData);
+  const nextEpAirDate = nextEp
+    ? new Date(nextEp.airDate ?? "").toLocaleDateString()
+    : "";
+
+  console.log(nextEp);
 
   return (
     <div className="flex flex-col md:flex-row gap-10">
@@ -43,23 +47,20 @@ export default function WatchSection() {
       </div>
 
       <div className="flex flex-col sm:flex-row md:flex-col gap-2 md:w-2/4">
-        {nextEpData && nextEpAirDate && (
-          <Link
-            href={`/watch/${nextEpData.id}`}
-            className="flex flex-col gap-2"
-          >
+        {nextEp && nextEpAirDate && (
+          <Link href={`/watch/${nextEp.id}`} className="flex flex-col gap-2">
             <p className="uppercase text-sm">next episode</p>
             <div className="flex gap-2">
               <div className="w-1/2">
                 <img
-                  src={nextEpData.image}
+                  src={nextEp.image}
                   alt="Image 2"
-                  className="object-cover h-full w-full"
+                  className="object-cover max-h-[120px] w-full"
                 />
               </div>
               <div className="w-1/2">
                 <div className="font-semibold mb-2 leading-5">
-                  EP {nextEpData.number} - {nextEpData.title}
+                  EP {nextEp.number} - {nextEp.title}
                 </div>
                 <p className="text-gray-700 text-sm">
                   {convertDateToWords(nextEpAirDate)}
@@ -69,23 +70,20 @@ export default function WatchSection() {
           </Link>
         )}
 
-        {prevEpData && prevEpAirDate && (
-          <Link
-            href={`/watch/${prevEpData.id}`}
-            className="flex flex-col gap-2"
-          >
+        {prevEp && prevEpAirDate && (
+          <Link href={`/watch/${prevEp.id}`} className="flex flex-col gap-2">
             <p className="uppercase text-sm">previous episode</p>
             <div className="flex gap-2">
               <div className="w-1/2">
                 <img
-                  src={prevEpData.image}
+                  src={prevEp.image}
                   alt="Image 2"
-                  className="object-cover h-full w-full"
+                  className="object-cover max-h-[120px] w-full"
                 />
               </div>
               <div className="w-1/2">
                 <div className="font-semibold mb-2 leading-5">
-                  EP {prevEpData.number} - {prevEpData.title}
+                  EP {prevEp.number} - {prevEp.title}
                 </div>
                 <p className="text-gray-700 text-sm">
                   {convertDateToWords(prevEpAirDate)}

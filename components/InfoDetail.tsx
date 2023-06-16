@@ -3,6 +3,7 @@ import { Anime } from "@/app/info/[id]/page";
 import React, { useEffect } from "react";
 import { shortenNumber } from "@/utils/shortenNumber";
 import { animeStore } from "@/context";
+import Link from "next/link";
 
 export default function InfoDetail({ anime }: { anime: Anime }) {
   const currentAnime = animeStore((state) => state.currentAnime);
@@ -90,7 +91,12 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
 
       <div className="w-1/2 hidden md:flex flex-col gap-5 justify-end self-start">
         <img src={anime.image} className="aspect-video object-cover" alt="" />
-        <button className="btn btn-primary">START WATCHING EP 1</button>
+        <Link
+          href={`/watch/${anime.episodes[anime.episodes.length - 1].id}`}
+          className="btn btn-primary"
+        >
+          START WATCHING EP 1
+        </Link>
       </div>
     </div>
   );
