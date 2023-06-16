@@ -1,22 +1,28 @@
 import { useRef } from "react";
 import classNames from "classnames";
+import { qualityStore } from "@/context";
 
+interface Sources {
+  url: string;
+  isM3U8: boolean;
+  quality: string;
+}
 interface DownloadButtonProps {
   player: {
     currentSrc: string;
   };
   className?: string;
+  data: Sources[];
 }
 
 export const QualityBtn: React.FC<DownloadButtonProps> = ({
   player,
   className,
+  data,
 }) => {
   const buttonRef = useRef<HTMLDivElement>(null);
-
-  const handleClick = () => {
-    // Handle click event
-  };
+  const currentQuality = qualityStore((state) => state.currentQuality);
+  const setCurrentQuality = qualityStore((state) => state.setCurrentQuality);
 
   return (
     <div
@@ -29,11 +35,10 @@ export const QualityBtn: React.FC<DownloadButtonProps> = ({
         })
       }
       tabIndex={0}
-      onClick={handleClick}
     >
       <div className="mt-1">
         <div className="dropdown dropdown-top dropdown-end">
-          <label tabIndex={0}>
+          <label tabIndex={0} className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -51,12 +56,19 @@ export const QualityBtn: React.FC<DownloadButtonProps> = ({
             tabIndex={0}
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 2</a>
-            </li>
+            {data.map((val, key) => {
+              return (
+                <li key={key} onClick={() => setCurrentQuality(val)}>
+                  <a
+                    className={`${
+                      currentQuality?.quality === val.quality && "bg-primary"
+                    }`}
+                  >
+                    {val.quality}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

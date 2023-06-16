@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-interface Anime {
+export interface Anime {
   id: string;
   malId: number;
   title: {
@@ -24,6 +25,8 @@ interface Anime {
   color: string | null;
   genres: string[];
   totalEpisodes: number;
+  episodeNumber: number;
+  episodeTitle: string;
   duration: number;
   type: string;
 }
@@ -37,7 +40,7 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
             {anime.title.userPreferred || anime.title.romaji}
           </p>
           <div className="text-gray-500 flex items-center">
-            <p>{anime.rating ? (anime.rating / 20).toFixed(1) : "N/A"}/5</p>
+            <p>{anime.rating ? (anime.rating / 20).toFixed(1) : " N/A "}/5</p>
             <p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,9 +56,11 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
               </svg>
             </p>
           </div>
+          <p>{anime.episodeTitle}</p>
           <p>{anime.releaseDate}</p>
           <p className="line-clamp-6 text-xs">
-            {anime?.description?.replace(/<[^>]+>/g, "")}
+            {anime?.description?.replace(/<[^>]+>/g, "") ||
+              "No description available for this show at this current time"}
           </p>
           <div className="join gap-2 mt-5">
             <button className="join-item tooltip" data-tip="Watch S1 EP1">
@@ -89,14 +94,24 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
           </div>
         </div>
       </div>
-      <img src={anime.image} alt="" className="object-cover h-56 w-full" />
+      <Image
+        src={anime.image}
+        alt={anime.title.userPreferred + " image"}
+        className="object-cover h-56 w-full"
+        width={100}
+        height={100}
+      />
       <div className="py-2">
         <p className="text-md font-semibold mb-2 line-clamp-1">
           {anime.title.userPreferred || anime.title.romaji}
         </p>
+        {anime.episodeNumber && (
+          <p className="text-sm">EP {anime.episodeNumber}</p>
+        )}
+
         <div className="flex justify-between text-xs text-gray-500">
           <p>{anime.status}</p>
-          <p>{anime.totalEpisodes} Episodes</p>
+          {anime.totalEpisodes && <p>{anime.totalEpisodes} Episodes</p>}
         </div>
       </div>
     </Link>

@@ -8,17 +8,25 @@ export default class HLSSource extends Component {
   }
 
   componentDidMount() {
-    // `src` is the property get from this component
-    // `video` is the property insert from `Video` component
+    // `src` is the property obtained from this component
+    // `video` is the property passed from the `Video` component
     // `video` is the html5 video element
     const { src, video } = this.props;
-    // load hls video source base on hls.js
+    // load hls video source using hls.js
     if (Hls.isSupported()) {
       this.hls.loadSource(src);
       this.hls.attachMedia(video);
       this.hls.on(Hls.Events.MANIFEST_PARSED, () => {
         video.play();
       });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    // Handle changes in the video source
+    if (prevProps.src !== this.props.src) {
+      this.hls.loadSource(this.props.src);
+      this.hls.attachMedia(this.props.video);
     }
   }
 

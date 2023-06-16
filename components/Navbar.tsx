@@ -42,7 +42,7 @@ export default function Navbar() {
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           <div className="flex">
             <p>anim</p>
-            <p className="text-red-500">Me</p>
+            <p className="text-anime">Me</p>
           </div>
         </Link>
       </div>
