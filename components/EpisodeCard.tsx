@@ -32,7 +32,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
               {airDate}
             </p>
             <p className="line-clamp-4 md:text-xs">
-              {ep.description.replace(/<[^>]+>/g, "")}
+              {ep?.description?.replace(/<[^>]+>/g, "")}
             </p>
           </div>
           <div className="join gap-2 md:mt-2">

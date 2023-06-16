@@ -85,7 +85,7 @@ export default async function InfoPageDynamic({
               <p className="ml-2">({shortenNumber(anime.popularity)})</p>
             </div>
             <p className="line-clamp-6">
-              {anime.description.replace(/<[^>]+>/g, "")}
+              {anime?.description?.replace(/<[^>]+>/g, "")}
             </p>
             <details className="collapse rounded-none">
               <summary className="text-xs font-semibold cursor-pointer">

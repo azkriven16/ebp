@@ -55,7 +55,7 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
           </div>
           <p>{anime.releaseDate}</p>
           <p className="line-clamp-6 text-xs">
-            {anime.description.replace(/<[^>]+>/g, "")}
+            {anime?.description?.replace(/<[^>]+>/g, "")}
           </p>
           <div className="join gap-2 mt-5">
             <button className="join-item tooltip" data-tip="Watch S1 EP1">
