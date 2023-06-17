@@ -24,7 +24,7 @@ export default function Navbar() {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-5 shadow bg-base-300 rounded-box w-52"
           >
             <li>
               <Link href="/recent">Recent</Link>

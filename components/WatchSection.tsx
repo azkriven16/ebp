@@ -35,8 +35,6 @@ export default function WatchSection() {
     ? new Date(nextEp.airDate ?? "").toLocaleDateString()
     : "";
 
-  console.log(nextEp);
-
   return (
     <div className="flex flex-col md:flex-row gap-10">
       <div className="flex flex-col gap-2 md:w-3/4">

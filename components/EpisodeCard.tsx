@@ -1,4 +1,5 @@
 import { Episode } from "@/app/info/[id]/page";
+import { convertDateToWords } from "@/utils/convertDate";
 import Link from "next/link";
 import React from "react";
 
@@ -16,7 +17,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
             <p className="text-lg md:text-sm font-bold line-clamp-1">
               EP {ep.number} - {ep.title}
             </p>
-            <p className="flex items-center text-xs">
+            <p className="flex items-center text-xs gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -29,7 +30,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
                   clipRule="evenodd"
                 />
               </svg>
-              {airDate}
+              {convertDateToWords(airDate)}
             </p>
             <p className="line-clamp-3 md:text-xs">
               {ep?.description?.replace(/<[^>]+>/g, "")}
@@ -60,7 +61,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
         <p className="line-clamp-1 font-semibold text-sm">
           EP {ep.number} - {ep.title}
         </p>
-        <p className="text-xs">{airDate}</p>
+        <p className="text-xs">{convertDateToWords(airDate)}</p>
       </div>
     </Link>
   );

@@ -24,5 +24,3 @@ export function convertDateToWords(dateString: string) {
 }
 
 const originalDate = "6/4/2023";
-const convertedDate = convertDateToWords(originalDate);
-console.log(convertedDate);
