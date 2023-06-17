@@ -45,13 +45,13 @@ export default function EpisodeList() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filter === "oldest"
-          ? anime.episodes
-              .slice()
-              .reverse()
-              .map((ep: Episode) => {
+          ? anime?.episodes
+              ?.slice()
+              ?.reverse()
+              ?.map((ep: Episode) => {
                 return <EpisodeCard ep={ep} />;
               })
-          : anime.episodes.map((ep: Episode) => {
+          : anime?.episodes?.map((ep: Episode) => {
               return <EpisodeCard ep={ep} />;
             })}
       </div>

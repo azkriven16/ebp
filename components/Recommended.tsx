@@ -32,10 +32,10 @@ export default function Recommended() {
             className="dropdown-content menu p-2 shadow bg-base-300 rounded-box w-52 z-10"
           >
             <li onClick={() => setFilter("oldest")}>
-              <a>Oldest</a>
+              <a className={`${filter === "oldest" && "text-anime"}`}>Oldest</a>
             </li>
             <li onClick={() => setFilter("newest")}>
-              <a>Newest</a>
+              <a className={`${filter === "newest" && "text-anime"}`}>Newest</a>
             </li>
           </ul>
         </div>
