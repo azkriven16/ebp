@@ -38,7 +38,7 @@ export default function WatchSection() {
   return (
     <div className="flex flex-col md:flex-row gap-10">
       <div className="flex flex-col gap-2 md:w-3/4">
-        <p className="text-anime">{currentAnime.title.english}</p>
+        <p className="text-anime">{currentAnime?.title?.english}</p>
         <p className="text-xl">{`EP${episodeDetails.number} - ${episodeDetails.title}`}</p>
         <p className="text-sm">Released on {convertDateToWords(airDate)}</p>
         <p className="">{episodeDetails.description}</p>

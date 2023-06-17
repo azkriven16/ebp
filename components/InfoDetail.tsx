@@ -15,7 +15,7 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
     <div className="flex gap-5">
       <div className="md:w-3/4 flex flex-col gap-2">
         <h1 className="text-4xl font-bold">
-          {anime.title.english || anime.title.romaji}
+          {anime?.title?.english || anime?.title?.romaji}
         </h1>
         <div className="flex w-full text-sm">
           <p className="">{anime.releaseDate}</p>
