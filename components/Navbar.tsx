@@ -1,4 +1,3 @@
-import Search from "./Search";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
@@ -63,7 +62,6 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Search />
         <ThemeToggle />
       </div>
     </div>
