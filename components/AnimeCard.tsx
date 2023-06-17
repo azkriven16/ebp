@@ -34,14 +34,14 @@ export interface Anime {
 
 const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
   return (
-    <Link href={`/info/${anime.id}`} className="bg-base-100 relative">
+    <Link href={`/info/${anime?.id}`} className="bg-base-100 relative">
       <div className="p-4 absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-base-300 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
         <div className="text-sm flex flex-col justify-between h-full">
           <p className="text-md font-bold line-clamp-2">
-            {anime.title.userPreferred || anime.title.romaji}
+            {anime?.title.userPreferred || anime?.title.romaji}
           </p>
           <div className="text-gray-500 flex items-center">
-            <p>{anime.rating ? (anime.rating / 20).toFixed(1) : " N/A "}/5</p>
+            <p>{anime?.rating ? (anime?.rating / 20).toFixed(1) : " N/A "}/5</p>
             <p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,15 +57,15 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
               </svg>
             </p>
           </div>
-          <p>{anime.episodeTitle}</p>
-          <p>{anime.releaseDate}</p>
+          <p>{anime?.episodeTitle}</p>
+          <p>{anime?.releaseDate}</p>
           <p className="line-clamp-6 text-xs">
             {anime?.description?.replace(/<[^>]+>/g, "") ||
               "No description available for this show at this current time"}
           </p>
           <div className="join gap-2 mt-5 text-anime">
             <Link
-              href={`/info/${anime.id}`}
+              href={`/info/${anime?.id}`}
               className="join-item tooltip"
               data-tip="Watch Now"
             >
@@ -100,23 +100,23 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
         </div>
       </div>
       <Image
-        src={anime.image}
-        alt={anime.title.userPreferred + " image"}
+        src={anime?.image}
+        alt={anime?.title?.userPreferred + " image"}
         className="object-cover h-56 w-full"
         width={100}
         height={100}
       />
       <div className="py-2">
         <p className="text-md font-semibold mb-2 line-clamp-1">
-          {anime.title.userPreferred || anime.title.romaji}
+          {anime?.title?.userPreferred || anime.title?.romaji}
         </p>
-        {anime.episodeNumber && (
-          <p className="text-sm">EP {anime.episodeNumber}</p>
+        {anime?.episodeNumber && (
+          <p className="text-sm">EP {anime?.episodeNumber}</p>
         )}
 
         <div className="flex justify-between text-xs text-gray-500">
-          <p>{anime.status}</p>
-          {anime.totalEpisodes && <p>{anime.totalEpisodes} Episodes</p>}
+          <p>{anime?.status}</p>
+          {anime?.totalEpisodes && <p>{anime?.totalEpisodes} Episodes</p>}
         </div>
       </div>
     </Link>
