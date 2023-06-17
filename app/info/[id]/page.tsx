@@ -81,7 +81,7 @@ export default async function InfoPageDynamic({
         <InfoDetail anime={anime} />
 
         <EpisodeList />
-        <Recommended />
+        {/* <Recommended /> */}
       </div>
     </div>
   );
