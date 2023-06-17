@@ -5,9 +5,14 @@ import React from "react";
 export default function Pagination() {
   const increase = recentPageStore((state) => state.increase);
   const decrease = recentPageStore((state) => state.decrease);
+  const page = recentPageStore((state) => state.page);
   return (
     <div className="join grid grid-cols-2 max-w-xs mb-10">
-      <button onClick={() => decrease(1)} className="join-item flex btn">
+      <button
+        onClick={() => decrease(1)}
+        className="join-item flex btn btn-xs md:btn-sm"
+        disabled={page === 1}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -24,7 +29,10 @@ export default function Pagination() {
         </svg>
         prev
       </button>
-      <button onClick={() => increase(1)} className="join-item btn">
+      <button
+        onClick={() => increase(1)}
+        className="join-item btn btn-xs md:btn-sm"
+      >
         next
         <svg
           xmlns="http://www.w3.org/2000/svg"
