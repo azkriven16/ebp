@@ -80,7 +80,7 @@ export default async function InfoPageDynamic({
       <div className="container max-w-5xl mx-auto flex flex-col gap-5 p-6">
         <InfoDetail anime={anime} />
 
-        {/* <EpisodeList /> */}
+        <EpisodeList />
         <Recommended />
       </div>
     </div>
