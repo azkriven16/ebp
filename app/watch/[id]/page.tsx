@@ -3,6 +3,7 @@ import EpisodeList from "@/components/EpisodeList";
 import VideoPlayer from "@/components/VideoPlayer";
 import WatchSection from "@/components/WatchSection";
 import Recommended from "@/components/Recommended";
+import Comments from "@/components/Comments";
 
 async function getData({ params }: { params: { id: string } }) {
   const res = await fetch(
@@ -33,7 +34,16 @@ export default async function InfoPageDynamic({
       </div>
       <div className="container max-w-5xl mx-auto flex flex-col px-6 gap-10">
         <WatchSection />
-        <EpisodeList />
+        <div className="collapse collapse-plus bg-base-200">
+          <input type="checkbox" />
+          <div className="collapse-title text-lg font-medium text-anime">
+            Show All Episodes
+          </div>
+          <div className="collapse-content">
+            <EpisodeList />
+          </div>
+        </div>
+        <Comments />
         <Recommended />
       </div>
     </div>
