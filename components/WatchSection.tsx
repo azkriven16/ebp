@@ -62,9 +62,7 @@ export default function WatchSection() {
                 <div className="font-semibold mb-2 leading-5">
                   EP {nextEp.number} - {nextEp.title}
                 </div>
-                <p className="text-gray-700 text-sm">
-                  {convertDateToWords(nextEpAirDate)}
-                </p>
+                <p className="text-sm">{convertDateToWords(nextEpAirDate)}</p>
               </div>
             </div>
           </Link>
@@ -85,9 +83,7 @@ export default function WatchSection() {
                 <div className="font-semibold mb-2 leading-5">
                   EP {prevEp.number} - {prevEp.title}
                 </div>
-                <p className="text-gray-700 text-sm">
-                  {convertDateToWords(prevEpAirDate)}
-                </p>
+                <p className="text-sm">{convertDateToWords(prevEpAirDate)}</p>
               </div>
             </div>
           </Link>

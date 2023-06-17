@@ -28,7 +28,8 @@ export default ({ anime }) => {
 
         <BigPlayButton position="center" />
         <LoadingSpinner />
-        <ControlBar autoHide={false}>
+
+        <ControlBar>
           <ReplayControl seconds={5} order={2.1} />
           <VolumeMenuButton vertical />
           <ForwardControl seconds={5} order={3.1} />

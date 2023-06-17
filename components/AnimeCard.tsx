@@ -29,11 +29,12 @@ export interface Anime {
   episodeTitle: string;
   duration: number;
   type: string;
+  recommendations: [];
 }
 
 const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
   return (
-    <Link href={`info/${anime.id}`} className="bg-base-100 relative">
+    <Link href={`/info/${anime.id}`} className="bg-base-100 relative">
       <div className="p-4 absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-base-300 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
         <div className="text-sm flex flex-col justify-between h-full">
           <p className="text-md font-bold line-clamp-2">
@@ -63,7 +64,11 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
               "No description available for this show at this current time"}
           </p>
           <div className="join gap-2 mt-5">
-            <button className="join-item tooltip" data-tip="Watch S1 EP1">
+            <Link
+              href={`/info/${anime.id}`}
+              className="join-item tooltip"
+              data-tip="Watch Now"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -76,7 +81,7 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
                   clipRule="evenodd"
                 />
               </svg>
-            </button>
+            </Link>
             <button className="join-item tooltip" data-tip="On Progress pa">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

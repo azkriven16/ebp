@@ -1,19 +1,16 @@
 "use client";
-import { Anime, Episode } from "@/app/info/[id]/page";
-import EpisodeCard from "./EpisodeCard";
 import { useState } from "react";
+import AnimeCard, { Anime } from "./AnimeCard";
 import { animeStore } from "@/context";
 
-export default function EpisodeList() {
+export default function Recommended() {
   const [filter, setFilter] = useState("newest");
   const anime = animeStore((state) => state.currentAnime);
 
   return (
     <div className="flex flex-col gap-5">
       <div className="flex justify-between items-center">
-        <h1 className="text-lg font-semibold">
-          {anime.title.english || anime.title.romaji} Episodes
-        </h1>
+        <h1 className="text-lg font-semibold">You might also like</h1>
         <div className="dropdown dropdown-end min-w-[110px]">
           <label tabIndex={0} className="btn">
             <svg
@@ -35,24 +32,24 @@ export default function EpisodeList() {
             className="dropdown-content menu p-2 shadow bg-base-300 rounded-box w-52 z-10"
           >
             <li onClick={() => setFilter("oldest")}>
-              <a className={`${filter === "oldest" && "text-anime"}`}>Oldest</a>
+              <a>Oldest</a>
             </li>
             <li onClick={() => setFilter("newest")}>
-              <a className={`${filter === "newest" && "text-anime"}`}>Newest</a>
+              <a>Newest</a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {filter === "oldest"
-          ? anime.episodes
+          ? anime.recommendations
               .slice()
               .reverse()
-              .map((ep: Episode) => {
-                return <EpisodeCard ep={ep} />;
+              .map((ep: Anime) => {
+                return <AnimeCard anime={ep} />;
               })
-          : anime.episodes.map((ep: Episode) => {
-              return <EpisodeCard ep={ep} />;
+          : anime.recommendations.map((ep: Anime) => {
+              return <AnimeCard anime={ep} />;
             })}
       </div>
     </div>

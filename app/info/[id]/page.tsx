@@ -1,5 +1,6 @@
 import EpisodeList from "@/components/EpisodeList";
 import InfoDetail from "@/components/InfoDetail";
+import Recommended from "@/components/Recommended";
 
 export interface Anime {
   id: string;
@@ -23,6 +24,14 @@ export interface Anime {
   trailer: {
     id: string;
   };
+  malId: number;
+  color: string;
+  totalEpisodes: number;
+  episodeNumber: number;
+  episodeTitle: string;
+  duration: number;
+  type: string;
+  recommendations: [];
 }
 
 export interface Episode {
@@ -71,48 +80,8 @@ export default async function InfoPageDynamic({
       <div className="container max-w-5xl mx-auto flex flex-col gap-5 p-6">
         <InfoDetail anime={anime} />
 
-        <EpisodeList anime={anime} />
-
-        {/* <div className="flex flex-col gap-5">
-          <div className="flex justify-between items-center">
-            <h1 className="text-lg font-semibold">Characters/Cast</h1>
-            <button className="btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-              filter
-            </button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {anime.characters.map((data: Character) => {
-              return (
-                <div
-                  key={data.id}
-                  className="flex flex-col gap-1 line-clamp-2 font-semibold text-sm"
-                >
-                  <img
-                    src={data.image}
-                    className="aspect-square object-cover"
-                    alt=""
-                  />
-                  <p>{data.name.full}</p>
-                  <p>{data.name.native}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div> */}
+        <EpisodeList />
+        <Recommended />
       </div>
     </div>
   );

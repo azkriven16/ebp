@@ -13,7 +13,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
       <div className="p-4 absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-base-300 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
         <div className="text-sm flex flex-col justify-between h-full items-start">
           <div className="flex flex-col gap-2">
-            <p className="text-lg md:text-sm font-bold line-clamp-2">
+            <p className="text-lg md:text-sm font-bold line-clamp-1">
               EP {ep.number} - {ep.title}
             </p>
             <p className="flex items-center text-xs">
@@ -31,7 +31,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
               </svg>
               {airDate}
             </p>
-            <p className="line-clamp-4 md:text-xs">
+            <p className="line-clamp-3 md:text-xs">
               {ep?.description?.replace(/<[^>]+>/g, "")}
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
       </div>
       <img src={ep.image} className="aspect-video object-cover" alt="" />
       <div className="flex flex-col">
-        <p className="line-clamp-2 font-semibold text-sm">
+        <p className="line-clamp-1 font-semibold text-sm">
           EP {ep.number} - {ep.title}
         </p>
         <p className="text-xs">{airDate}</p>

@@ -6,12 +6,10 @@ import { animeStore } from "@/context";
 import Link from "next/link";
 
 export default function InfoDetail({ anime }: { anime: Anime }) {
-  const currentAnime = animeStore((state) => state.currentAnime);
   const setCurrentAnime = animeStore((state) => state.setCurrentAnime);
   useEffect(() => {
     setCurrentAnime(anime);
   }, []);
-  console.log(currentAnime);
 
   return (
     <div className="flex gap-5">
@@ -32,7 +30,7 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
           {anime?.description?.replace(/<[^>]+>/g, "")}
         </p>
         <details className="collapse rounded-none">
-          <summary className="text-xs font-semibold cursor-pointer">
+          <summary className="text-xs font-semibold cursor-pointer text-anime">
             MORE DETAILS...
           </summary>
           <div className="flex flex-col gap-5 mt-5">
@@ -57,7 +55,7 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
               <div className="border-b flex justify-between py-2">
                 <p>Trailer</p>
                 <p>
-                  {anime.trailer.id ? (
+                  {anime?.trailer?.id ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -93,7 +91,7 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
         <img src={anime.image} className="aspect-video object-cover" alt="" />
         <Link
           href={`/watch/${anime.episodes[anime.episodes.length - 1].id}`}
-          className="btn btn-primary"
+          className="btn bg-anime hover:bg-anime/80 text-white"
         >
           START WATCHING EP 1
         </Link>

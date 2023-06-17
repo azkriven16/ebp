@@ -43,7 +43,7 @@ export const QualityBtn: React.FC<DownloadButtonProps> = ({
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-5 h-5"
+              className="w-4 h-5"
             >
               <path
                 fillRule="evenodd"
@@ -54,7 +54,7 @@ export const QualityBtn: React.FC<DownloadButtonProps> = ({
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36"
           >
             {data.map((val, key) => {
               return (

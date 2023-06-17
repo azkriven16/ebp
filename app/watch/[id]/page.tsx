@@ -2,6 +2,7 @@ import { Anime } from "@/app/info/[id]/page";
 import EpisodeList from "@/components/EpisodeList";
 import VideoPlayer from "@/components/VideoPlayer";
 import WatchSection from "@/components/WatchSection";
+import Recommended from "@/components/Recommended";
 
 async function getData({ params }: { params: { id: string } }) {
   const res = await fetch(
@@ -30,8 +31,10 @@ export default async function InfoPageDynamic({
           <VideoPlayer anime={anime} />
         </div>
       </div>
-      <div className="container max-w-5xl mx-auto flex flex-col px-6">
+      <div className="container max-w-5xl mx-auto flex flex-col px-6 gap-10">
         <WatchSection />
+        <EpisodeList />
+        <Recommended />
       </div>
     </div>
   );
