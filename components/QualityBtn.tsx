@@ -36,14 +36,14 @@ export const QualityBtn: React.FC<DownloadButtonProps> = ({
       }
       tabIndex={0}
     >
-      <div className="mt-1">
+      <div className="mt-[7px] ml-2">
         <div className="dropdown dropdown-top dropdown-end">
           <label tabIndex={0} className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-4 h-5"
+              className="w-4 h-4"
             >
               <path
                 fillRule="evenodd"

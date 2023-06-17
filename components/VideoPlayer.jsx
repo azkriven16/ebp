@@ -34,7 +34,7 @@ export default ({ anime }) => {
           <VolumeMenuButton vertical />
           <ForwardControl seconds={5} order={3.1} />
           <QualityBtn data={anime.sources} order={7} />
-          <DownloadButton order={8} />
+          {/* <DownloadButton order={8} /> */}
         </ControlBar>
       </Player>
     </div>
