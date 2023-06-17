@@ -36,7 +36,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
             </p>
           </div>
           <div className="join gap-2 md:mt-2">
-            <button className="join-item flex items-center text-primary">
+            <button className="join-item flex items-center gap-2 text-anime">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

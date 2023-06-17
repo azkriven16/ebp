@@ -26,7 +26,7 @@ export default async function InfoPageDynamic({
   const anime: Anime = await getData({ params });
   return (
     <div className="flex flex-col gap-10">
-      <div className="bg-base-300">
+      <div className="bg-base-200">
         <div className="container max-w-3xl mx-auto flex flex-col px-6">
           <VideoPlayer anime={anime} />
         </div>

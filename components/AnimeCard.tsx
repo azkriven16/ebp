@@ -63,7 +63,7 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
             {anime?.description?.replace(/<[^>]+>/g, "") ||
               "No description available for this show at this current time"}
           </p>
-          <div className="join gap-2 mt-5">
+          <div className="join gap-2 mt-5 text-anime">
             <Link
               href={`/info/${anime.id}`}
               className="join-item tooltip"
