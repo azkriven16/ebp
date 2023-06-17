@@ -8,7 +8,7 @@ interface recentState {
   decrease: (by: number) => void;
 }
 interface AnimeState {
-  currentAnime: Anime;
+  currentAnime: any;
   setCurrentAnime: (newAnime: Anime) => void;
 }
 
@@ -27,29 +27,7 @@ export const animeStore = create<AnimeState>()(
   devtools(
     persist(
       (set) => ({
-        currentAnime: {
-          id: "string",
-          title: {
-            english: "string",
-            romaji: "string",
-            native: "string",
-          },
-          synonyms: "string",
-          image: "string",
-          cover: "string",
-          releaseDate: "string",
-          rating: 1,
-          status: "string",
-          popularity: "string",
-          description: "string",
-          episodes: [],
-          characters: [],
-          genres: [],
-          studios: [],
-          trailer: {
-            id: "string",
-          },
-        },
+        currentAnime: "",
         setCurrentAnime: (newAnime) => set({ currentAnime: newAnime }),
       }),
       {
