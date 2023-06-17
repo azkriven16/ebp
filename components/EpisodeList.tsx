@@ -12,7 +12,7 @@ export default function EpisodeList() {
     <div className="flex flex-col gap-5">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">
-          {anime.title.english || anime.title.romaji} Episodes
+          {anime?.title?.english || anime?.title?.romaji} Episodes
         </h1>
         <div className="dropdown dropdown-end min-w-[110px]">
           <label tabIndex={0} className="btn">
