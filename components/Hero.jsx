@@ -3,7 +3,7 @@ import Wallpaper from "@/public/japanese.png";
 
 export default function Hero() {
   return (
-    <section className="hero min-h-screen bg-base-200">
+    <section className="hero">
       <div className="h-full w-full flex justify-end">
         <img src={Wallpaper.src} alt="" className="object-contain" />
       </div>
