@@ -14,7 +14,9 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
   return (
     <div className="flex gap-5">
       <div className="md:w-3/4 flex flex-col gap-2">
-        <h1 className="text-4xl font-bold">{anime.title.english}</h1>
+        <h1 className="text-4xl font-bold">
+          {anime.title.english || anime.title.romaji}
+        </h1>
         <div className="flex w-full text-sm">
           <p className="">{anime.releaseDate}</p>
           <div className="divider divider-horizontal"></div>
@@ -77,9 +79,9 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
               <div className="border-b flex justify-between py-2">
                 <p>Other name</p>
                 <div className="flex flex-col">
-                  <p>{anime.title.english}</p>
-                  <p>{anime.title.native}</p>
-                  <p>{anime.title.romaji}</p>
+                  <p>{anime?.title?.english}</p>
+                  <p>{anime?.title?.native}</p>
+                  <p>{anime?.title?.romaji}</p>
                 </div>
               </div>
             </div>
