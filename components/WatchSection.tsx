@@ -11,7 +11,7 @@ export default function WatchSection() {
 
   //get current episode details
   const details = currentAnime.episodes.filter(
-    (obj) => obj.id === pathname.replace(/\/watch\//, "")
+    (obj: any) => obj.id === pathname.replace(/\/watch\//, "")
   );
   const episodeDetails = details[0];
   //human readable date format
@@ -19,7 +19,7 @@ export default function WatchSection() {
 
   // get prev ep data
   const prevEp = currentAnime.episodes.findLast(
-    (obj) => obj.number < episodeDetails.number
+    (obj: any) => obj.number < episodeDetails.number
   );
 
   const prevEpAirDate = prevEp
@@ -28,7 +28,7 @@ export default function WatchSection() {
 
   // get next ep data
   const nextEp = currentAnime.episodes.findLast(
-    (obj) => obj.number > episodeDetails.number
+    (obj: any) => obj.number > episodeDetails.number
   );
 
   const nextEpAirDate = nextEp
