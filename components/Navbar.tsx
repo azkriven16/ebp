@@ -45,7 +45,7 @@ export default function Navbar() {
             <p className="text-anime">Me</p>
           </div>
         </Link>
-        <ul className="menu menu-horizontal font-semibold hidden md:flex flex-nowrap">
+        <ul className="menu menu-horizontal tracking-wide hidden md:flex flex-nowrap">
           <li>
             <Link href="/recent">Recent</Link>
           </li>

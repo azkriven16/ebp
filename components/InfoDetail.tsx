@@ -14,7 +14,7 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
   return (
     <div className="flex gap-5">
       <div className="md:w-3/4 flex flex-col gap-2">
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-4xl font-bold text-white mix-blend-difference">
           {anime?.title?.english || anime?.title?.romaji}
         </h1>
         <div className="flex w-full text-sm">
@@ -89,12 +89,26 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
         </details>
       </div>
 
-      <div className="w-1/2 hidden md:flex flex-col gap-5 justify-end self-start">
+      <div className="w-1/2 hidden md:flex flex-col gap-2 justify-end self-start">
         <img src={anime.image} className="aspect-video object-cover" alt="" />
         <Link
           href={`/watch/${anime.episodes[anime.episodes.length - 1].id}`}
           className="btn bg-anime hover:bg-anime/80 text-white"
         >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+            />
+          </svg>
           START WATCHING EP 1
         </Link>
       </div>

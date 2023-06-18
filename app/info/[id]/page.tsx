@@ -72,15 +72,15 @@ export default async function InfoPageDynamic({
 }) {
   const anime: Anime = await getData({ params });
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col">
       <div className="relative w-full flex justify-center">
         <img src={anime.cover} className="w-full h-64 object-cover" alt="" />
       </div>
-
       <div className="container max-w-5xl mx-auto flex flex-col gap-5 p-6">
         <InfoDetail anime={anime} />
-
+        <div className="divider"></div>
         <EpisodeList />
+        <div className="divider"></div>
         <Recommended />
       </div>
     </div>

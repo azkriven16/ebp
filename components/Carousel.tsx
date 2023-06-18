@@ -36,22 +36,36 @@ export default async function Carousel() {
         <Slider {...settings}>
           {data.results.map((anime: Anime) => {
             return (
-              <div key={anime.id} className="h-[50vh] relative flex">
+              <Link
+                href={`/info/${anime.id}`}
+                key={anime.id}
+                className="h-[50vh] relative flex"
+              >
                 <img
                   className="h-full w-full object-contain"
                   src={anime.cover}
                   alt=""
                 />
-                <div className="absolute bottom-2 right-0 m-5 bg-base-100 flex rounded-xl px-5 py-3 items-center justify-center gap-5">
-                  <p className="text-xl">{anime.title.english}</p>
-                  <Link
-                    href={`/info/${anime.id}`}
-                    className="btn btn-ghost bg-anime hover:bg-anime/90 hover:scale-105 text-white"
-                  >
-                    watch now
-                  </Link>
+                <div className="absolute bottom-2 right-0 m-5">
+                  <button className="btn bg-anime text-white border-none hover:scale-105 hover:bg-anime/90">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                      />
+                    </svg>
+                    {anime.title.english || anime.title.romaji}
+                  </button>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </Slider>

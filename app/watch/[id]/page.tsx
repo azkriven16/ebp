@@ -34,6 +34,8 @@ export default async function InfoPageDynamic({
       </div>
       <div className="container max-w-5xl mx-auto flex flex-col px-6 gap-10">
         <WatchSection />
+        <div className="divider"></div>
+        <h1 className="text-lg font-semibold">Episode List</h1>
         <div className="collapse collapse-plus bg-base-200">
           <input type="checkbox" />
           <div className="collapse-title text-lg font-medium text-anime">
@@ -43,6 +45,7 @@ export default async function InfoPageDynamic({
             <EpisodeList />
           </div>
         </div>
+        <div className="divider"></div>
         <Comments />
         <Recommended />
       </div>
