@@ -35,6 +35,11 @@ export interface Anime {
 const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
   return (
     <Link href={`/info/${anime?.id}`} className="bg-base-100 relative">
+      {anime?.episodeNumber && (
+        <p className="text-xs absolute right-0 bg-anime text-white px-2 py-1">
+          EP {anime?.episodeNumber}
+        </p>
+      )}
       <div className="p-4 absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-base-300 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
         <div className="text-sm flex flex-col justify-between h-full">
           <p className="text-md font-bold line-clamp-2">
@@ -102,17 +107,14 @@ const AnimeCard: React.FC<{ anime: Anime }> = ({ anime }) => {
       <Image
         src={anime?.image}
         alt={anime?.title?.userPreferred + " image"}
-        className="object-cover h-56 w-full"
+        className="object-cover h-60 xs:h-56 w-full"
         width={100}
         height={100}
       />
       <div className="py-2">
-        <p className="text-md font-semibold mb-2 line-clamp-1">
+        <p className="text-md font-semibold mb-2 line-clamp-2">
           {anime?.title?.userPreferred || anime.title?.romaji}
         </p>
-        {anime?.episodeNumber && (
-          <p className="text-sm">EP {anime?.episodeNumber}</p>
-        )}
 
         <div className="flex justify-between text-xs text-gray-500">
           <p>{anime?.status}</p>

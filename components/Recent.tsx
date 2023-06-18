@@ -26,7 +26,8 @@ export default async function Recent() {
         <h2 className="text-2xl font-bold mb-4">Recent Anime</h2>
         <Pagination />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+
+      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
         {data.results.map((anime: Anime) => {
           return <AnimeCard key={anime.id} anime={anime} />;
         })}

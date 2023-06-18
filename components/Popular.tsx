@@ -1,8 +1,12 @@
-import Link from "next/link";
+"use client";
 import AnimeCard, { Anime } from "./AnimeCard";
+import Pagination from "./Pagination";
+import { recentPageStore } from "@/context";
 
-async function getData() {
-  const res = await fetch("https://api.consumet.org/meta/anilist/popular");
+async function getData({ page }: { page: number }) {
+  const res = await fetch(
+    `https://api.consumet.org/meta/anilist/popular?page=${page}`
+  );
 
   // Recommendation: handle errors
   if (!res.ok) {
@@ -14,20 +18,19 @@ async function getData() {
 }
 
 export default async function Popular() {
-  const data = await getData();
+  const page = recentPageStore((state) => state.page);
+  const data = await getData({ page });
   return (
     <div className="container mx-auto max-w-5xl p-6">
-      <h2 className="text-2xl font-bold mb-4">Popular Anime</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {data.results.map((anime: Anime) => {
-          return <AnimeCard anime={anime} />;
-        })}
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-bold mb-4">Popular Anime</h2>
+        <Pagination />
       </div>
-      <div className="join grid grid-cols-2 max-w-xs mx-auto mt-10">
-        <button className="join-item btn btn-outline btn-sm">
-          Previous page
-        </button>
-        <button className="join-item btn btn-outline btn-sm">Next</button>
+
+      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+        {data.results.map((anime: Anime) => {
+          return <AnimeCard key={anime.id} anime={anime} />;
+        })}
       </div>
     </div>
   );

@@ -27,13 +27,13 @@ export default function Pagination() {
             d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
           />
         </svg>
-        prev
+        <p className="hidden xs:block">prev</p>
       </button>
       <button
         onClick={() => increase(1)}
         className="join-item btn btn-xs md:btn-sm"
       >
-        next
+        <p className="hidden xs:block">next</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
