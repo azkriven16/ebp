@@ -53,7 +53,7 @@ interface Character {
 
 async function getData({ params }: { params: { id: string } }) {
   const res = await fetch(
-    `https://api.consumet.org/meta/anilist/info/${params.id}`
+    `https://api.consumet.org/meta/anilist/info/${params?.id}`
   );
 
   // Recommendation: handle errors
@@ -73,14 +73,14 @@ export default async function InfoPageDynamic({
   const anime: Anime = await getData({ params });
   return (
     <div className="flex flex-col">
-      <div className="relative w-full flex justify-center">
-        <img src={anime.cover} className="w-full h-64 object-cover" alt="" />
+      <div className="relative w-full flex justify-center bg-black">
+        <img src={anime.cover} className="w-full h-64 object-contain" alt="" />
       </div>
       <div className="container max-w-5xl mx-auto flex flex-col gap-5 p-6">
         <InfoDetail anime={anime} />
-        <div className="divider"></div>
+        <div className="divider bg-anime h-1"></div>
         <EpisodeList />
-        <div className="divider"></div>
+        <div className="divider bg-anime h-1"></div>
         <Recommended />
       </div>
     </div>

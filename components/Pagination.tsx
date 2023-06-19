@@ -7,7 +7,7 @@ export default function Pagination() {
   const decrease = recentPageStore((state) => state.decrease);
   const page = recentPageStore((state) => state.page);
   return (
-    <div className="join grid grid-cols-2 max-w-xs mb-10">
+    <div className="join grid grid-cols-2 max-w-xs">
       <button
         onClick={() => decrease(1)}
         className="join-item flex btn btn-xs md:btn-sm "

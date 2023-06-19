@@ -1,40 +1,17 @@
 import React from "react";
+import { Anime } from "./AnimeCard";
 import Link from "next/link";
 import Image from "next/image";
 
-export interface Anime {
-  id: string;
-  malId: number;
-  title: {
-    romaji: string;
-    english: string;
-    native: string;
-    userPreferred: string;
-  };
-  image: string;
-  trailer: {
-    id: string;
-    site: string;
-    thumbnail: string;
-  };
-  description: string;
-  status: string;
-  cover: string;
-  rating: number;
-  releaseDate: number;
-  color: string | null;
-  genres: string[];
-  totalEpisodes: number;
-  episodeNumber: number;
-  episodeTitle: string;
-  duration: number;
-  type: string;
-  recommendations: [];
-}
-
-export default function AnimeCard({ anime }: { anime: Anime }) {
+export default function AnimeCard2({ anime }: { anime: Anime }) {
   return (
     <Link href={`/info/${anime?.id}`} className="bg-base-100 relative">
+      {anime?.episodeNumber && (
+        <p className="text-xs absolute right-0 bg-anime text-white px-2 py-1">
+          EP {anime?.episodeNumber}
+        </p>
+      )}
+
       <div className="p-4 absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-base-300 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
         <div className="text-sm flex flex-col justify-between h-full">
           <p className="text-md font-bold line-clamp-2">
@@ -104,14 +81,13 @@ export default function AnimeCard({ anime }: { anime: Anime }) {
         height={100}
       />
       <div className="py-2">
-        <p className="text-sm mb-2 line-clamp-2 h-10">
+        <p className="text-sm mb-2 line-clamp-2">
           {anime?.title?.userPreferred || anime.title?.romaji}
         </p>
 
         <div className="flex justify-between text-xs text-gray-500">
-          {anime.episodeNumber && <p>{`Episode ${anime.episodeNumber}`}</p>}
-          {anime.status && <p>{`${anime.status}`}</p>}
-          {anime.totalEpisodes && <p>{`${anime.totalEpisodes} Episodes`}</p>}
+          <p>{anime?.status}</p>
+          {anime?.totalEpisodes && <p>{anime?.totalEpisodes} Episodes</p>}
         </div>
       </div>
     </Link>

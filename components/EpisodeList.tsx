@@ -14,7 +14,7 @@ export default function EpisodeList() {
         <h1 className="text-lg font-semibold">
           {anime?.title?.english || anime?.title?.romaji} Episodes
         </h1>
-        <div className="dropdown dropdown-end min-w-[110px]">
+        <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,8 @@ export default function EpisodeList() {
                 clipRule="evenodd"
               />
             </svg>
-            filter
+
+            <p className="hidden md:inline-block">filter</p>
           </label>
           <ul
             tabIndex={0}
@@ -43,6 +44,7 @@ export default function EpisodeList() {
           </ul>
         </div>
       </div>
+      <div className="divider bg-anime h-1"></div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filter === "oldest"
           ? anime?.episodes

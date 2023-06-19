@@ -90,9 +90,13 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
       </div>
 
       <div className="w-1/2 hidden md:flex flex-col gap-2 justify-end self-start">
-        <img src={anime.image} className="aspect-video object-cover" alt="" />
+        <img
+          src={anime?.episodes[anime?.episodes?.length - 1]?.image}
+          className="aspect-video object-cover"
+          alt=""
+        />
         <Link
-          href={`/watch/${anime.episodes[anime.episodes.length - 1].id}`}
+          href={`/watch/${anime?.episodes[anime?.episodes?.length - 1]?.id}`}
           className="btn bg-anime hover:bg-anime/80 text-white"
         >
           <svg

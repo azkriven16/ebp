@@ -23,10 +23,11 @@ export default async function ExampleClientComponent() {
   return (
     <div>
       <div className="container mx-auto max-w-5xl p-6">
-        <div className="flex justify-between my-10">
-          <h2 className="text-xl font-bold mb-4">Top Results</h2>
+        <div className="flex justify-between">
+          <h2 className="text-xl font-bold">Top Results</h2>
           <SearchForm />
         </div>
+        <div className="divider bg-anime h-1"></div>
         <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
           {data.results.map((anime: Anime) => {
             return <AnimeCard key={anime.id} anime={anime} />;

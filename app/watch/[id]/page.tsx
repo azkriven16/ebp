@@ -7,7 +7,7 @@ import Comments from "@/components/Comments";
 
 async function getData({ params }: { params: { id: string } }) {
   const res = await fetch(
-    `https://api.consumet.org/meta/anilist/watch/${params.id}`
+    `https://api.consumet.org/meta/anilist/watch/${params?.id}`
   );
 
   // Recommendation: handle errors
@@ -34,7 +34,8 @@ export default async function InfoPageDynamic({
       </div>
       <div className="container max-w-5xl mx-auto flex flex-col px-6 gap-10">
         <WatchSection />
-        <div className="divider"></div>
+        <div className="divider bg-anime h-1"></div>
+
         <h1 className="text-lg font-semibold">Episode List</h1>
         <div className="collapse collapse-plus bg-base-200">
           <input type="checkbox" />
@@ -45,7 +46,8 @@ export default async function InfoPageDynamic({
             <EpisodeList />
           </div>
         </div>
-        <div className="divider"></div>
+        <div className="divider bg-anime h-1"></div>
+
         <Comments />
         <Recommended />
       </div>
