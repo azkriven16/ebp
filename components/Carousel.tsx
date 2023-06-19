@@ -46,8 +46,8 @@ export default async function Carousel() {
                   src={anime.cover}
                   alt=""
                 />
-                <div className="absolute bottom-2 right-0 m-5">
-                  <button className="btn bg-anime text-white border-none hover:scale-105 hover:bg-anime/90">
+                <div className="absolute bottom-0 right-0 h-full w-full bg-gradient-to-t from-black to-transparent flex flex-col justify-end items-start p-10 gap-5 pb-2">
+                  {/* <button className="btn bg-anime text-white border-none hover:scale-105 hover:bg-anime/90">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -63,7 +63,10 @@ export default async function Carousel() {
                       />
                     </svg>
                     {anime.title.english || anime.title.romaji}
-                  </button>
+                  </button> */}
+                  <h1 className="text-2xl font-bold text-white">
+                    {anime.title.english || anime.title.romaji}
+                  </h1>
                 </div>
               </Link>
             );

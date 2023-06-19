@@ -10,7 +10,7 @@ export default function Pagination() {
     <div className="join grid grid-cols-2 max-w-xs mb-10">
       <button
         onClick={() => decrease(1)}
-        className="join-item flex btn btn-xs md:btn-sm"
+        className="join-item flex btn btn-xs md:btn-sm "
         disabled={page === 1}
       >
         <svg

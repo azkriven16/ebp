@@ -23,7 +23,7 @@ export default async function Trending() {
   return (
     <div className="container mx-auto max-w-5xl p-6">
       <div className="flex justify-between">
-        <h2 className="text-2xl font-bold mb-4">Trending Anime</h2>
+        <h2 className="text-xl font-bold mb-4">Trending Anime</h2>
         <Pagination />
       </div>
 

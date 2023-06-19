@@ -1,51 +1,80 @@
+"use client";
 import { ThemeToggle } from "./ThemeToggle";
+import Logo from "@/public/logo.svg";
 import Link from "next/link";
+declare global {
+  interface Window {
+    my_modal_2: HTMLDialogElement;
+  }
+}
+
+const closeModal = (): void => {
+  const modalElement = document.getElementById(
+    "my-modal-4"
+  ) as HTMLInputElement | null;
+  if (modalElement) {
+    modalElement.checked = true;
+  }
+};
 
 export default function Navbar() {
   return (
     <div className="navbar bg-base-300 sticky top-0 z-10">
       <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content mt-3 p-5 shadow bg-base-300 rounded-box"
+        <button
+          className="btn flex sm:hidden"
+          onClick={() => window.my_modal_2.showModal()}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <li>
-              <Link href="/recent">Recent</Link>
-            </li>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </button>
+        <dialog id="my_modal_2" className="modal">
+          <form method="dialog" className="modal-box">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+            <ul
+              tabIndex={0}
+              onClick={closeModal}
+              className="menu menu-lg dropdown-content mt-3 p-5 rounded-box flex items-center"
+            >
+              <li>
+                <Link href="/recent">Recent</Link>
+              </li>
 
-            <li>
-              <Link href="/trending">Trending</Link>
-            </li>
+              <li>
+                <Link href="/trending">Trending</Link>
+              </li>
 
-            <li>
-              <Link href="/popular">Popular</Link>
-            </li>
-          </ul>
-        </div>
+              <li>
+                <Link href="/popular">Popular</Link>
+              </li>
+            </ul>
+          </form>
+
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
         <Link href="/" className="btn btn-ghost normal-case text-xl">
-          <div className="flex">
-            <p>anim</p>
-            <p className="text-anime">Me</p>
+          <div className="flex gap-1 items-center">
+            <img src={Logo.src} className="h-10 w-10" />
+            Nekonime
           </div>
         </Link>
-        <ul className="menu menu-horizontal tracking-wide hidden md:flex flex-nowrap">
+        <ul className="menu menu-horizontal tracking-wide hidden sm:flex flex-nowrap font-semibold">
           <li>
             <Link href="/recent">Recent</Link>
           </li>
@@ -96,11 +125,11 @@ export default function Navbar() {
             className="menu dropdown-content mt-3 p-5 shadow bg-base-300 rounded-box w-52"
           >
             <li>
-              <Link href="/recent">Login</Link>
+              <Link href="/login">Login</Link>
             </li>
 
             <li>
-              <Link href="/trending">Register</Link>
+              <Link href="/register">Register</Link>
             </li>
 
             <li>
