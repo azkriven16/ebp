@@ -8,9 +8,6 @@ import "slick-carousel/slick/slick-theme.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  icons: {
-    icon: "/_next/static/media/logo.d9b35aeb.svg",
-  },
   title: "Nekonime",
   description: "Watch Anime / Stream Anime Free",
 };

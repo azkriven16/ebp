@@ -47,13 +47,12 @@ export default async function Carousel() {
                   src={anime.cover}
                   alt=""
                 />
-
-                <div className="absolute bottom-0 right-0 h-full w-full p-10 gap-5 pb-2 bg-gradient-to-t from-black to-transparent flex justify-start items-end">
-                  <div className="w-1/2 flex flex-col gap-2 items-start justify-between h-48">
-                    <h1 className="text-3xl font-bold text-white">
+                <div className="absolute bottom-0 right-0 h-full w-full gap-5 pb-2 bg-gradient-to-t from-black to-transparent flex items-end">
+                  <div className="container mx-auto max-w-5xl p-6 flex flex-col gap-5 items-start justify-between">
+                    <h1 className="text-3xl line-clamp-1 font-bold text-white">
                       {anime.title.english || anime.title.romaji}
                     </h1>
-                    <p className="line-clamp-2">
+                    <p className="line-clamp-2 w-3/4">
                       {readableDescription(anime?.description)}
                     </p>
                     <button className="btn bg-anime hover:bg-anime/90 text-white">
