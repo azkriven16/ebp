@@ -23,6 +23,7 @@ export interface Anime {
   studios: [];
   trailer: {
     id: string;
+    site: string;
   };
   malId: number;
   color: string;
@@ -78,9 +79,16 @@ export default async function InfoPageDynamic({
       </div>
       <div className="container max-w-5xl mx-auto flex flex-col gap-5 p-6">
         <InfoDetail anime={anime} />
-        <div className="divider bg-anime h-1"></div>
-        <EpisodeList />
-        <div className="divider bg-anime h-1"></div>
+        <div className="collapse collapse-plus bg-base-200">
+          <input type="checkbox" />
+          <div className="collapse-title text-lg font-medium text-anime">
+            Show All Episodes
+          </div>
+          <div className="collapse-content">
+            <EpisodeList />
+          </div>
+        </div>
+        <div className="divider bg-anime h-0.5"></div>
         <Recommended />
       </div>
     </div>

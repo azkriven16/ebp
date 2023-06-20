@@ -27,7 +27,7 @@ export default async function ExampleClientComponent() {
           <h2 className="text-xl font-bold">Top Results</h2>
           <SearchForm />
         </div>
-        <div className="divider bg-anime h-1"></div>
+        <div className="divider bg-anime h-0.5"></div>
         <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
           {data.results.map((anime: Anime) => {
             return <AnimeCard key={anime.id} anime={anime} />;

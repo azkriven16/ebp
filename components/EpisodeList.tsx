@@ -6,7 +6,25 @@ import { animeStore } from "@/context";
 
 export default function EpisodeList() {
   const [filter, setFilter] = useState("newest");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [episodesPerPage] = useState(50); // Number of episodes per page
   const anime = animeStore((state) => state.currentAnime);
+
+  // Calculate the indexes of the episodes to be displayed on the current page
+  const indexOfLastEpisode = currentPage * episodesPerPage;
+  const indexOfFirstEpisode = indexOfLastEpisode - episodesPerPage;
+  const currentEpisodes =
+    filter === "oldest"
+      ? anime?.episodes
+          ?.slice()
+          ?.reverse()
+          ?.slice(indexOfFirstEpisode, indexOfLastEpisode)
+      : anime?.episodes?.slice(indexOfFirstEpisode, indexOfLastEpisode);
+
+  // Function to handle page navigation
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="flex flex-col gap-5">
@@ -44,18 +62,32 @@ export default function EpisodeList() {
           </ul>
         </div>
       </div>
-      <div className="divider bg-anime h-1"></div>
+
+      <div className="join grid grid-cols-12">
+        {Array.from({
+          length: Math.ceil(anime.episodes.length / episodesPerPage),
+        }).map((_, index) => (
+          <button
+            key={index}
+            className="page-item"
+            onClick={() => paginate(index + 1)}
+          >
+            <a
+              className={`join-item btn-sm w-3 ${
+                currentPage === index + 1 && "btn-active"
+              }`}
+            >
+              {index + 1}
+            </a>
+          </button>
+        ))}
+      </div>
+
+      <div className="divider bg-anime h-0.5"></div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {filter === "oldest"
-          ? anime?.episodes
-              ?.slice()
-              ?.reverse()
-              ?.map((ep: Episode) => {
-                return <EpisodeCard ep={ep} />;
-              })
-          : anime?.episodes?.map((ep: Episode) => {
-              return <EpisodeCard ep={ep} />;
-            })}
+        {currentEpisodes?.map((ep: Episode) => {
+          return <EpisodeCard ep={ep} />;
+        })}
       </div>
     </div>
   );

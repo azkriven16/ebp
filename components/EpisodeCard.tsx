@@ -1,5 +1,6 @@
 import { Episode } from "@/app/info/[id]/page";
 import { convertDateToWords } from "@/utils/convertDate";
+import { readableDescription } from "@/utils/readableDescription";
 import Link from "next/link";
 import React from "react";
 
@@ -33,7 +34,7 @@ export default function EpisodeCard({ ep }: { ep: Episode }) {
               {convertDateToWords(airDate)}
             </p>
             <p className="line-clamp-3 md:text-xs">
-              {ep?.description?.replace(/<[^>]+>/g, "")}
+              {readableDescription(ep?.description)}
             </p>
           </div>
           <div className="join gap-2 md:mt-2">

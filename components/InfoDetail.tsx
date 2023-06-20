@@ -10,10 +10,9 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
   useEffect(() => {
     setCurrentAnime(anime);
   }, []);
-
   return (
     <div className="flex gap-5">
-      <div className="md:w-3/4 flex flex-col gap-2">
+      <div className="md:w-3/4 flex flex-col gap-5">
         <h1 className="text-4xl font-bold text-white mix-blend-difference">
           {anime?.title?.english || anime?.title?.romaji}
         </h1>
@@ -31,21 +30,20 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
         <p className="line-clamp-6">
           {anime?.description?.replace(/<[^>]+>/g, "")}
         </p>
+        <div className="flex gap-1">
+          {anime.genres.map((gen, key) => {
+            return (
+              <p key={key} className="btn btn-sm">
+                {gen}
+              </p>
+            );
+          })}
+        </div>
         <details className="collapse rounded-none">
           <summary className="text-xs font-semibold cursor-pointer text-anime">
             MORE DETAILS...
           </summary>
           <div className="flex flex-col gap-5 mt-5">
-            <div className="flex gap-1">
-              {anime.genres.map((gen, key) => {
-                return (
-                  <p key={key} className="btn btn-sm">
-                    {gen}
-                  </p>
-                );
-              })}
-            </div>
-
             <div className="flex flex-col">
               <div className="border-b flex justify-between py-2">
                 <p>Studio</p>
@@ -56,8 +54,11 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
 
               <div className="border-b flex justify-between py-2">
                 <p>Trailer</p>
-                <p>
-                  {anime?.trailer?.id ? (
+                <a
+                  href={`https://www.youtube.com/watch?v=${anime?.trailer?.id}`}
+                  target="_blank"
+                >
+                  {anime?.trailer?.id || anime?.trailer?.site === "youtube" ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -73,7 +74,7 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
                   ) : (
                     "NA"
                   )}
-                </p>
+                </a>
               </div>
 
               <div className="border-b flex justify-between py-2">
@@ -91,13 +92,33 @@ export default function InfoDetail({ anime }: { anime: Anime }) {
 
       <div className="w-1/2 hidden md:flex flex-col gap-2 justify-end self-start">
         <img
-          src={anime?.episodes[anime?.episodes?.length - 1]?.image}
+          src={anime?.episodes[0]?.image}
           className="aspect-video object-cover"
           alt=""
         />
         <Link
-          href={`/watch/${anime?.episodes[anime?.episodes?.length - 1]?.id}`}
+          href={`/watch/${anime?.episodes[0]?.id}`}
           className="btn bg-anime hover:bg-anime/80 text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+            />
+          </svg>
+          Watch latest episode
+        </Link>
+        <Link
+          href={`/watch/${anime?.episodes[anime?.episodes?.length - 1]?.id}`}
+          className="btn btn-outline"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

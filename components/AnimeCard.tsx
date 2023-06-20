@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { readableDescription } from "@/utils/readableDescription";
 
 export interface Anime {
   id: string;
@@ -60,8 +61,7 @@ export default function AnimeCard({ anime }: { anime: Anime }) {
           <p>{anime?.episodeTitle}</p>
           <p>{anime?.releaseDate}</p>
           <p className="line-clamp-6 text-xs">
-            {anime?.description?.replace(/<[^>]+>/g, "") ||
-              "No description available for this show at this current time"}
+            {readableDescription(anime?.description)}
           </p>
           <div className="flex gap-2 text-anime">
             <button className="join-item tooltip" data-tip="Watch Now">

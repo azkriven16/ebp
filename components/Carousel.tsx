@@ -1,9 +1,10 @@
 "use client";
 import AnimeCard, { Anime } from "./AnimeCard";
-import Pagination from "./Pagination";
 import { recentPageStore } from "@/context";
 import Slider from "react-slick";
 import Link from "next/link";
+import InfoDetail from "./InfoDetail";
+import { readableDescription } from "@/utils/readableDescription";
 
 async function getData({ page }: { page: number }) {
   const res = await fetch(
@@ -27,31 +28,38 @@ export default async function Carousel() {
     infinite: true,
     slidesToScroll: 1,
     autoplay: true,
+    arrows: false,
   };
-
+  const randomizedResults = data?.results?.sort(() => Math.random() - 0.5);
   return (
     <div className="bg-black hidden md:block">
-      <div className="px-10">
+      <div className="">
         <Slider {...settings}>
-          {data.results.map((anime: Anime) => {
+          {randomizedResults?.map((anime: Anime) => {
             return (
               <Link
                 href={`/info/${anime.id}`}
                 key={anime.id}
-                className="h-[50vh] relative flex"
+                className="h-[60vh] relative flex"
               >
                 <img
                   className="h-full w-full object-contain"
                   src={anime.cover}
                   alt=""
                 />
-                <div className="absolute bottom-0 right-0 h-full w-full bg-gradient-to-t from-black to-transparent flex justify-between items-end p-10 gap-5 pb-2">
-                  <h1 className="text-3xl font-bold text-white">
-                    {anime.title.english || anime.title.romaji}
-                  </h1>
-                  <button className="btn bg-anime hover:bg-anime/90 text-white">
-                    watch now
-                  </button>
+
+                <div className="absolute bottom-0 right-0 h-full w-full p-10 gap-5 pb-2 bg-gradient-to-t from-black to-transparent flex justify-start items-end">
+                  <div className="w-1/2 flex flex-col gap-2 items-start justify-between h-48">
+                    <h1 className="text-3xl font-bold text-white">
+                      {anime.title.english || anime.title.romaji}
+                    </h1>
+                    <p className="line-clamp-2">
+                      {readableDescription(anime?.description)}
+                    </p>
+                    <button className="btn bg-anime hover:bg-anime/90 text-white">
+                      watch now
+                    </button>
+                  </div>
                 </div>
               </Link>
             );

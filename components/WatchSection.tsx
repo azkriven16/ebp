@@ -18,7 +18,7 @@ export default function WatchSection() {
   const airDate = new Date(episodeDetails.airDate).toLocaleDateString();
 
   // get prev ep data
-  const prevEp = currentAnime.episodes.findLast(
+  const prevEp = currentAnime.episodes.find(
     (obj: any) => obj.number < episodeDetails.number
   );
 
@@ -34,7 +34,6 @@ export default function WatchSection() {
   const nextEpAirDate = nextEp
     ? new Date(nextEp.airDate ?? "").toLocaleDateString()
     : "";
-
   return (
     <div className="flex flex-col md:flex-row gap-10">
       <div className="flex flex-col gap-2 md:w-3/4">

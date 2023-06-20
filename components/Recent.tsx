@@ -1,10 +1,8 @@
 "use client";
-import Slider from "react-slick";
 import AnimeCard, { Anime } from "./AnimeCard";
 import Pagination from "./Pagination";
 import { recentPageStore } from "@/context";
 import { usePathname } from "next/navigation";
-import { settings } from "./Trending";
 
 async function getData({ page }: { page: number }) {
   const res = await fetch(
@@ -26,33 +24,30 @@ export default async function Recent() {
   const data = await getData({ page });
   return (
     <div className="container mx-auto max-w-5xl p-6">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center gap-2">
         <div>
-          <h2 className="text-2xl text-white mix-blend-difference">
+          <h2 className="text-xl sm:text-2xl text-white mix-blend-difference">
             Recent Anime
           </h2>
-          <p>Stay up to date with the latest releases!</p>
+          <p className="text-sm sm:text-md">
+            Stay up to date with the latest releases!
+          </p>
         </div>
         {pathname !== "/" && pathname !== "/search" ? (
           <Pagination />
         ) : (
-          <a href="/recent" className="btn">
+          <a href="/recent" className="btn btn-sm sm:btn-md">
             more
           </a>
         )}
       </div>
-      <div className="divider bg-anime h-1"></div>
+
+      <div className="divider bg-anime h-0.5"></div>
       {pathname === "/" ? (
-        <div>
-          <Slider {...settings}>
-            {data?.results?.map((anime: Anime) => {
-              return (
-                <div key={anime.id} className="px-2">
-                  <AnimeCard anime={anime} />
-                </div>
-              );
-            })}
-          </Slider>
+        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          {data?.results?.slice(0, 6).map((anime: Anime) => {
+            return <AnimeCard key={anime.id} anime={anime} />;
+          })}
         </div>
       ) : (
         <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
