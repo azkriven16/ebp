@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Nekonime",
+  title: "Nekoanime",
   description: "Watch Anime / Stream Anime Free",
 };
 

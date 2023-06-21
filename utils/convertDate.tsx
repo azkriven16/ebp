@@ -1,4 +1,8 @@
 export function convertDateToWords(dateString: string) {
+  if (dateString === null || dateString === undefined) {
+    return "";
+  }
+
   const months = [
     "January",
     "February",
@@ -17,10 +21,12 @@ export function convertDateToWords(dateString: string) {
   const [month, day, year] = dateString.split("/");
   const monthIndex = parseInt(month) - 1;
 
+  if (isNaN(monthIndex) || isNaN(parseInt(day)) || isNaN(parseInt(year))) {
+    return "";
+  }
+
   const monthWord = months[monthIndex];
   const convertedDate = `${monthWord} ${day}, ${year}`;
 
   return convertedDate;
 }
-
-const originalDate = "6/4/2023";

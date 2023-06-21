@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content mt-20">
+    <footer className="footer p-10 mt-20">
       <div>
         <img src={Logo.src} className="h-20 w-20" />
         <p>
-          Nekonime - Watch Anime Free
+          Euger Bonete Portfolio
           <br />
-          Providing reliable tech since 2023
+          Made with ❤️ by Eugerdev 2023
         </p>
       </div>
       <div>
@@ -18,14 +18,6 @@ export default function Footer() {
           <Link href="/recent">Recent</Link>
           <Link href="/trending">Trending</Link>
           <Link href="/popular">Popular</Link>
-        </div>
-      </div>
-
-      <div>
-        <span className="footer-title">Account</span>
-        <div className="grid grid-flow-col gap-4">
-          <Link href="/register">Create an account</Link>
-          <Link href="/login">Login</Link>
         </div>
       </div>
 

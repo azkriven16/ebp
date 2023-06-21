@@ -1,4 +1,5 @@
 module.exports = {
+  transpilePackages: ["three"],
   images: {
     unoptimized: true,
     remotePatterns: [
