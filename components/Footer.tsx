@@ -1,5 +1,4 @@
 import Logo from "@/public/logo.svg";
-import { Fade } from "./Animation";
 
 export default function Footer() {
   return (
