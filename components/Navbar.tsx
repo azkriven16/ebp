@@ -107,7 +107,7 @@ export default function Navbar() {
             </li>
 
             <li>
-              <a href="#works">Works</a>
+              <a href="#works">Works </a>
             </li>
             <li>
               <a href="#contact">Contact</a>
