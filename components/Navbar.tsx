@@ -79,11 +79,11 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <Link href="/about">About</Link>
+                  <a href="#works">Works</a>
                 </li>
 
                 <li>
-                  <Link href="/works">Works</Link>
+                  <a href="#contact">Contact</a>
                 </li>
               </ul>
             </form>
@@ -103,15 +103,14 @@ export default function Navbar() {
         <div className="navbar-center">
           <ul className="menu menu-horizontal tracking-wide hidden sm:flex flex-nowrap">
             <li>
-              <Link href="/">Home</Link>
+              <a href="#home">Home</a>
             </li>
 
             <li>
-              <Link href="/about">About</Link>
+              <a href="#works">Works</a>
             </li>
-
             <li>
-              <Link href="/works">Works</Link>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </div>

@@ -6,8 +6,8 @@ import { Fade } from "./Animation";
 
 export default function About() {
   return (
-    <Fade bottom>
-      <div className="flex flex-col gap-2 justify-center items-center">
+    <Fade bottom once={false}>
+      <div className="flex flex-col gap-2 justify-center items-centerm mt-5">
         <div className="flex items-center w-full gap-2 mb-5">
           <Image
             width={75}

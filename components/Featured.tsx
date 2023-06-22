@@ -7,7 +7,7 @@ import { Fade } from "./Animation";
 export default function Featured() {
   return (
     <Fade bottom>
-      <div className="flex flex-col gap-2 justify-center items-center">
+      <div className="flex flex-col gap-2  mt-5">
         <div className="flex items-center w-full gap-2 mb-5">
           <Image
             width={75}
@@ -19,10 +19,8 @@ export default function Featured() {
           <code className="uppercase font-bold">Works</code>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div className="bg-gray-500 w-64 h-40"></div>
-          <div className="bg-slate-500 w-64 h-40"></div>
-          <div className="bg-slate-500 w-64 h-40"></div>
-          <div className="bg-slate-500 w-64 h-40"></div>
+          <div className="bg-gray-500 w-56 h-40"></div>
+          <div className="bg-slate-500 w-56 h-40"></div>
         </div>
         <button className="btn mt-5 btn-secondary">More</button>
       </div>
