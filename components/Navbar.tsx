@@ -94,7 +94,7 @@ export default function Navbar() {
           </dialog>
           <Link href="/" className="btn btn-ghost normal-case text-xl">
             <div className="flex gap-1 items-center">
-              <img src={Logo.src} className="h-6 w-6" />
+              <img src={Logo.src} className="h-10 w-10" />
               <p className="text-sm tracking-tight">Euger Bonete</p>
             </div>
           </Link>

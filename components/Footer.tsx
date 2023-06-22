@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer p-10 mt-20">
       <div>
-        <img src={Logo.src} className="h-10 w-10" />
+        <img src={Logo.src} className="h-14 w-1h-14" />
         <p>
           Euger Bonete Portfolio
           <br />
