@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import About from "@/components/About";
 import Bio from "@/components/Bio";

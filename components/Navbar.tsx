@@ -3,8 +3,8 @@ import Logo from "@/public/logo.svg";
 import Github from "@/public/github.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-const Fade = require("react-reveal/Fade");
-
+import { motion, useScroll } from "framer-motion";
+import { homeVariant } from "./Animation";
 declare global {
   interface Window {
     my_modal_2: HTMLDialogElement;
@@ -22,6 +22,8 @@ const closeModal = (): void => {
 
 export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
@@ -35,9 +37,18 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  console.log(scrollYProgress);
   return (
-    <Fade>
-      <div
+    <>
+      <motion.div
+        className="progress-bar w-screen mx-auto"
+        style={{ scaleX: scrollYProgress, zIndex: 99999 }}
+      />
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={homeVariant}
         className={`navbar sticky top-0 z-10 max-w-3xl mx-auto ${
           hasScrolled
             ? "bg-base-100 bg-opacity-90 backdrop-blur-lg"
@@ -120,7 +131,7 @@ export default function Navbar() {
             <img src={Github.src} className="h-6 w-6" alt="" />
           </button>
         </div>
-      </div>
-    </Fade>
+      </motion.div>
+    </>
   );
 }

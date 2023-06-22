@@ -1,12 +1,22 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import BioAvatar from "@/public/bio.svg";
-import { Fade } from "./Animation";
+import { useInView, motion } from "framer-motion";
+import { fadeVariant } from "./Animation";
 
 export default function Bio() {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   return (
-    <Fade bottom>
+    <motion.div
+      ref={ref}
+      className="flex flex-col gap-2 justify-center items-centerm mt-5"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      exit="exit"
+      variants={fadeVariant}
+    >
       <div className="flex flex-col gap-2 justify-center items-center">
         <div className="flex items-center w-full gap-2 mb-5">
           <Image
@@ -34,6 +44,6 @@ export default function Bio() {
           <p>Pursuing a degree at Northern Iloilo State University</p>
         </div>
       </div>
-    </Fade>
+    </motion.div>
   );
 }
