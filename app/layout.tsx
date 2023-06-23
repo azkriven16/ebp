@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Loader from "@/components/Loader";
+import LoaderLayout from "@/components/LoaderLayout";
 
 const inter = Inter({
   weight: ["300", "400", "700", "900"],
@@ -28,7 +29,7 @@ export default function RootLayout({
           <div className="absolute top-0 opacity-0" id="home"></div>
           <Hero />
           <Loader />
-          {children}
+          <LoaderLayout>{children}</LoaderLayout>
         </div>
         <Footer />
       </body>
