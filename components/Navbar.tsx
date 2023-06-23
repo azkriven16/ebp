@@ -37,7 +37,6 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(scrollYProgress);
   return (
     <>
       <motion.div
@@ -90,7 +89,7 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <a href="#works">Works</a>
+                  <Link href="/works">Works</Link>
                 </li>
 
                 <li>
@@ -114,11 +113,11 @@ export default function Navbar() {
         <div className="navbar-center">
           <ul className="menu menu-horizontal tracking-wide hidden sm:flex flex-nowrap">
             <li>
-              <a href="#home">Home</a>
+              <Link href="/">Home</Link>
             </li>
 
             <li>
-              <a href="#works">Works </a>
+              <Link href="/works">Works </Link>
             </li>
             <li>
               <a href="#contact">Contact</a>
@@ -127,9 +126,13 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-end">
-          <button className="btn btn-ghost">
+          <a
+            href="https://github.com/EugerBonete"
+            target="_blank"
+            className="btn btn-ghost"
+          >
             <img src={Github.src} className="h-6 w-6" alt="" />
-          </button>
+          </a>
         </div>
       </motion.div>
     </>

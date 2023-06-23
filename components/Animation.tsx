@@ -1,10 +1,10 @@
 export const fadeVariant = {
-  hidden: { opacity: 1, y: 50 },
+  hidden: { opacity: 0, x: 150 },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: {
-      duration: 0.8,
+      duration: 1.5,
       ease: [0, 0.71, 0.2, 1.01],
     },
   },
@@ -13,6 +13,14 @@ export const fadeVariant = {
 
 export const homeVariant = {
   hidden: { opacity: 0, y: -50 },
-  visible: { opacity: 1, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 3,
+      duration: 1.6,
+      ease: [0, 0.71, 0.2, 1.01],
+    },
+  },
   exit: { opacity: 0 },
 };

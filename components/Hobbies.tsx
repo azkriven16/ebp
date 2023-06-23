@@ -20,8 +20,8 @@ export default function Hobbies() {
       <div className="flex flex-col gap-2 justify-center items-start">
         <div className="flex items-center w-full gap-2 mb-5">
           <Image
-            width={75}
-            height={75}
+            width={65}
+            height={65}
             src={HobbiesAvatar.src}
             alt=""
             className="object-cover rounded-full bg-gray-500"
