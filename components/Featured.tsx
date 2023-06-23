@@ -24,15 +24,6 @@ export default function Featured() {
     >
       <div className="flex flex-col gap-2">
         <div className="flex items-center w-full gap-2 mb-5">
-          {pathname !== "/" && (
-            <Image
-              width={65}
-              height={65}
-              src={featuredAvatar.src}
-              alt=""
-              className="object-cover rounded-full bg-gray-500"
-            />
-          )}
           <code className="uppercase font-bold">Works</code>
         </div>
 
@@ -54,13 +45,6 @@ export default function Featured() {
         {pathname !== "/" && (
           <>
             <div className="flex items-center w-full gap-2 my-5">
-              <Image
-                width={65}
-                height={65}
-                src={oldAvatar.src}
-                alt=""
-                className="object-cover rounded-full bg-gray-500"
-              />
               <code className="uppercase font-bold">Old Works</code>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
