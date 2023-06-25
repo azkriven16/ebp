@@ -17,7 +17,6 @@ export default function CanvasContainer() {
         minDistance={20} // Set the minimum zoom distance
         maxDistance={25} // Set the maximum zoom distance
       />
-      <Loader />
     </Canvas>
   );
 }

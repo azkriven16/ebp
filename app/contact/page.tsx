@@ -1,16 +1,11 @@
 "use client";
 import React, { FormEvent, useRef, useState } from "react";
-import { useInView, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { fadeVariant } from "@/components/Animation";
 import { CgFacebook, CgMail } from "react-icons/cg";
 import { AiFillLinkedin } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 export default function Contact() {
-  const pathname = usePathname();
-  const ref = useRef(null);
-  const isInView = useInView(ref);
   const form = useRef<HTMLFormElement>(null!);
   const [success, setSuccess] = useState(false);
 
@@ -41,10 +36,7 @@ export default function Contact() {
   };
   return (
     <form ref={form} onSubmit={sendEmail}>
-      <motion.div
-        ref={ref}
-        className="flex flex-col gap-2 justify-center items-center"
-      >
+      <div className="flex flex-col gap-2 justify-center items-center">
         <div className="flex flex-col gap-2 w-full">
           <div className="flex items-center justify-between w-full gap-2 mb-5">
             <code className="uppercase font-bold">Contact</code>
@@ -123,7 +115,7 @@ export default function Contact() {
             ""
           )}
         </div>
-      </motion.div>
+      </div>
     </form>
   );
 }
