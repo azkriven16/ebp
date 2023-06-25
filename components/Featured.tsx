@@ -13,21 +13,39 @@ export default function Featured() {
           <code className="uppercase font-bold">Works</code>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {workData.map((data) => {
-            return (
-              <Link
-                href={`/works/${data.id}`}
-                key={data.id}
-                className="flex flex-col justify-center items-center gap-2"
-              >
-                <img src={data.thumbnail} alt="" className="rounded-lg" />
-                <p>{data.title}</p>
-                <p className="text-sm">{data.short}</p>
-              </Link>
-            );
-          })}
-        </div>
+        {pathname === "/" ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {workData.slice(0, 2).map((data) => {
+              return (
+                <Link
+                  href={`/works/${data.id}`}
+                  key={data.id}
+                  className="flex flex-col justify-center items-center gap-2"
+                >
+                  <img src={data.thumbnail} alt="" className="rounded-lg" />
+                  <p>{data.title}</p>
+                  <p className="text-sm">{data.short}</p>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {workData.map((data) => {
+              return (
+                <Link
+                  href={`/works/${data.id}`}
+                  key={data.id}
+                  className="flex flex-col justify-center items-center gap-2"
+                >
+                  <img src={data.thumbnail} alt="" className="rounded-lg" />
+                  <p>{data.title}</p>
+                  <p className="text-sm">{data.short}</p>
+                </Link>
+              );
+            })}
+          </div>
+        )}
 
         {pathname !== "/" && (
           <>

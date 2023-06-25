@@ -60,7 +60,7 @@ module.exports = {
           accent: "#37cdbe",
           "accent-focus": "#2aa79b",
           "accent-content": "#ffffff",
-          neutral: "#2a2e37",
+          neutral: "#ffffff",
           "neutral-focus": "#16181d",
           "neutral-content": "#ffffff",
           "base-100": "#74d2d9",
