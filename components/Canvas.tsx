@@ -16,6 +16,7 @@ export default function CanvasContainer() {
         minPolarAngle={Math.PI / 4} // Restrict rotation to 90 degrees up and down
         minDistance={20} // Set the minimum zoom distance
         maxDistance={25} // Set the maximum zoom distance
+        enableZoom={false}
       />
     </Canvas>
   );

@@ -1,5 +1,3 @@
-import BioAvatar from "@/public/bio.svg";
-
 export default function Bio() {
   return (
     <div className="flex flex-col gap-2 justify-center items-centerm mt-5">

@@ -1,23 +1,25 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useProgress } from "@react-three/drei";
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
   const controls = useAnimation();
+  const { progress } = useProgress();
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+      if (progress == 100) setLoading(false);
+    }, 1000);
+  }, [progress]);
 
   useEffect(() => {
     if (!loading) {
       controls.start({ opacity: 0, y: -20, transition: { duration: 0.5 } });
     }
   }, [loading, controls]);
-
+  console.log(progress);
   return (
     <>
       {loading ? (
@@ -32,7 +34,6 @@ export default function Loader() {
             animate={{
               opacity: 1,
               y: 0,
-              transition: { delay: 0.5, duration: 0.5 },
             }}
           ></motion.div>
           <motion.h1
@@ -40,7 +41,6 @@ export default function Loader() {
             animate={{
               opacity: 1,
               y: 0,
-              transition: { delay: 1, duration: 1 },
             }}
             className="font-semibold"
           >
