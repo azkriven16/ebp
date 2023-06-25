@@ -14,25 +14,6 @@ export default function page() {
   const data = mergedArray[0];
   return (
     <div className="space-y-5">
-      <div className="text-sm breadcrumbs">
-        <ul>
-          <li>
-            <Link href="/">
-              <code>Home</code>
-            </Link>
-          </li>
-          <li>
-            <Link href="/works">
-              <code>works</code>
-            </Link>
-          </li>
-          {data && (
-            <li>
-              <code>{data.title}</code>
-            </li>
-          )}
-        </ul>
-      </div>
       <p className="text-sm indent-8">{data.description}</p>
       <div className="pl-8 my-5 space-y-5 text-sm">
         <a href={data.url} target="_blank" className="flex gap-2">
