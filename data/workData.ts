@@ -7,7 +7,7 @@ export const workData = [
     short: "watch or stream anime",
     description:
       "Website that offers a vast collection of animated series and movies, providing a delightful experience for anime enthusiasts.",
-    url: "nekoanime.vercel.app",
+    url: "https://nekoanime.vercel.app",
     stack: "Typescript, Next 13, Tailwind CSS, Video React",
     gif: "/coffee-gif.gif",
     git: "https://github.com/EugerBonete/Nekoanime",
