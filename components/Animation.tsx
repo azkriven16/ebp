@@ -12,17 +12,22 @@ export const fadeVariant = {
 };
 
 export const loadingVariant = {
-  hidden: { opacity: 0, y: -50 },
+  hidden: {
+    opacity: 0,
+    y: "-5%",
+  },
   visible: {
-    opacity: 1,
     y: 0,
+    opacity: 1,
     transition: {
-      delay: 3,
-      duration: 1.6,
-      ease: [0, 0.71, 0.2, 1.01],
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
-  exit: { opacity: 0 },
+  exit: {
+    opacity: 0,
+    y: "10%",
+  },
 };
 
 export const homeVariant = {

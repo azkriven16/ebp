@@ -1,51 +1,66 @@
-// import Anime from "@/public/projects/anime-2.png";
 export const workData = [
   {
-    id: "2",
-    title: "Gericht",
+    id: "neko-anime",
+    title: "Nekoanime",
+    thumbnail: "/projects/neko-anime.png",
+    thumbnail2: "/projects/neko-anime-2.png",
+    short: "watch or stream anime",
+    description:
+      "Website that offers a vast collection of animated series and movies, providing a delightful experience for anime enthusiasts.",
+    url: "nekoanime.vercel.app",
+    stack: "Typescript, Next 13, Tailwind CSS, Video React",
+    gif: "/coffee-gif.gif",
+    git: "https://github.com/EugerBonete/Nekoanime",
+  },
+  {
+    id: "gericht",
+    title: "gericht",
     thumbnail: "/projects/gericht.png",
     thumbnail2: "/projects/gericht-2.png",
-    short: "simple manga reading website",
+    short: "elegant restaurant website",
     description:
-      "Welcome to my manga reading website! Here you can find and read many manga online in a convenient way. Search, read, and enjoy your favorite manga in different reading modes. Join now and start reading today!",
+      "Restaurant landing page that showcases delectable cuisine, inviting ambiance, and an unforgettable dining experience.",
     url: "https://gerichtgericht.netlify.app",
-    stack: "React JS, NEXT.js",
+    stack: "ReactJS, Material UI",
     gif: "/manga-gif.gif",
-    git: "https://github.com/EugerBonete/coffee/",
+    git: "https://github.com/EugerBonete/gericht",
+  },
+  {
+    id: "o-coffee",
+    title: "o-coffee",
+    thumbnail: "/projects/coffee.png",
+    thumbnail2: "/projects/coffee-2.png",
+    short: "coffee website landing page",
+    description:
+      "Coffee landing page website that immerses visitors in the world of coffee with its enticing design and rich content. Offering a delightful browsing experience, OCoffee showcases an array of premium coffee blends.",
+    url: "https://ocoffee.netlify.app",
+    stack: "HTML, CSS, Javascript",
+    gif: "/coffee-gif.gif",
+    git: "https://github.com/EugerBonete/coffee",
     ingredients: [
       {
-        tech: "NEXT.JS",
-        url: "https://nextjs.org/",
+        tech: "HTML",
+        url: "",
       },
       {
-        tech: "Redux Toolkit",
-        url: "https://redux-toolkit.js.org/",
+        tech: "CSS",
+        url: "",
       },
       {
-        tech: "Axios",
-        url: "https://www.npmjs.com/package/axios",
-      },
-      {
-        tech: "Chakra UI",
-        url: "https://chakra-ui.com/",
-      },
-      {
-        tech: "React Slick",
-        url: "https://www.npmjs.com/package/react-slick",
+        tech: "Javascript",
+        url: "",
       },
     ],
   },
-
   {
-    id: "2",
-    title: "Fr Anime",
+    id: "f-r",
+    title: "fr anime",
     thumbnail: "/projects/fr.png",
     thumbnail2: "/projects/fr-2.png",
-    short: "simple manga reading website",
-    description:
-      "Welcome to my manga reading website! Here you can find and read many manga online in a convenient way. Search, read, and enjoy your favorite manga in different reading modes. Join now and start reading today!",
+    short: "anime website",
+    description: "An anime website that offers free anime streaming and more.",
     url: "https://f-r.vercel.app",
-    stack: "React JS, NEXT.js",
+    stack: "Typescript, NEXT JS,Chakra UI,Hls JS",
     gif: "/manga-gif.gif",
     git: "https://github.com/EugerBonete/my-animev2",
     ingredients: [
@@ -71,65 +86,11 @@ export const workData = [
       },
     ],
   },
-  {
-    id: "4",
-    title: "0 Coffee",
-    thumbnail: "/projects/coffee.png",
-    thumbnail2: "/projects/coffee-2.png",
-    short: "a coffee website landing page",
-    description:
-      "Welcome to my coffee website! Find a wide selection of premium, freshly roasted coffee beans from around the world. Sourced only the highest quality beans, roasted to perfection. Start your day off right with a cup of our delicious coffee.",
-    url: "https://ocoffee.netlify.app",
-    stack: "HTML, CSS, Javascript",
-    gif: "/coffee-gif.gif",
-    git: "https://github.com/EugerBonete/coffee/",
-    ingredients: [
-      {
-        tech: "HTML",
-        url: "",
-      },
-      {
-        tech: "CSS",
-        url: "",
-      },
-      {
-        tech: "Javascript",
-        url: "",
-      },
-    ],
-  },
-  {
-    id: "4",
-    title: "Nekoanime",
-    thumbnail: "/projects/neko-anime.png",
-    thumbnail2: "/projects/neko-anime-2.png",
-    short: "a coffee website landing page",
-    description:
-      "Welcome to my coffee website! Find a wide selection of premium, freshly roasted coffee beans from around the world. Sourced only the highest quality beans, roasted to perfection. Start your day off right with a cup of our delicious coffee.",
-    url: "https://ocoffee.netlify.app",
-    stack: "HTML, CSS, Javascript",
-    gif: "/coffee-gif.gif",
-    git: "https://github.com/EugerBonete/coffee/",
-    ingredients: [
-      {
-        tech: "HTML",
-        url: "",
-      },
-      {
-        tech: "CSS",
-        url: "",
-      },
-      {
-        tech: "Javascript",
-        url: "",
-      },
-    ],
-  },
 ];
 
 export const oldWorkData = [
   {
-    id: "1",
+    id: "anime-10",
     title: "Anime10",
     thumbnail: "/projects/anime.png",
     thumbnail2: "/projects/anime-2.png",
@@ -168,7 +129,7 @@ export const oldWorkData = [
     ],
   },
   {
-    id: "2",
+    id: "ani-search",
     title: "AniSearch",
     thumbnail: "/projects/anisearch.png",
     thumbnail2: "/projects/anisearch-2.png",
@@ -203,7 +164,7 @@ export const oldWorkData = [
     ],
   },
   {
-    id: "2",
+    id: "tesla",
     title: "Tesla Landing Page",
     thumbnail: "/projects/tesla.png",
     thumbnail2: "/projects/tesla-2.png",
@@ -238,7 +199,7 @@ export const oldWorkData = [
     ],
   },
   {
-    id: "5",
+    id: "anime-quote",
     title: "Random Anime Quote",
     thumbnail: "/projects/quote.png",
     thumbnail2: "/projects/quote-2.png",
@@ -265,7 +226,7 @@ export const oldWorkData = [
     ],
   },
   {
-    id: "6",
+    id: "old portfolio",
     title: "Old Portfolio",
     thumbnail: "/projects/old.png",
     thumbnail2: "/projects/old-2.png",
@@ -292,7 +253,7 @@ export const oldWorkData = [
     ],
   },
   {
-    id: "4",
+    id: "capture",
     title: "Capture",
     thumbnail: "/projects/capture.png",
     thumbnail2: "/projects/capture-2.png",

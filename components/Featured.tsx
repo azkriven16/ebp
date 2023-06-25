@@ -1,12 +1,10 @@
 "use client";
-import Image from "next/image";
 import React, { useRef } from "react";
-import featuredAvatar from "@/public/featured.svg";
-import oldAvatar from "@/public/old.svg";
 import { useInView, motion } from "framer-motion";
 import { fadeVariant } from "./Animation";
 import { usePathname } from "next/navigation";
 import { oldWorkData, workData } from "@/data/workData";
+import Link from "next/link";
 
 export default function Featured() {
   const pathname = usePathname();
@@ -17,10 +15,6 @@ export default function Featured() {
     <motion.div
       ref={ref}
       className="flex flex-col gap-2 justify-center items-center"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      exit="exit"
-      variants={fadeVariant}
     >
       <div className="flex flex-col gap-2">
         <div className="flex items-center w-full gap-2 mb-5">
@@ -30,14 +24,15 @@ export default function Featured() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {workData.map((data) => {
             return (
-              <div
+              <Link
+                href={`/works/${data.id}`}
                 key={data.id}
                 className="flex flex-col justify-center items-center gap-2"
               >
-                <img src={data.thumbnail} alt="" />
+                <img src={data.thumbnail} alt="" className="rounded-lg" />
                 <p>{data.title}</p>
                 <p className="text-sm">{data.short}</p>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -50,21 +45,24 @@ export default function Featured() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {oldWorkData.map((data) => {
                 return (
-                  <div
+                  <Link
+                    href={`/works/${data.id}`}
                     key={data.id}
                     className="flex flex-col justify-center items-center gap-1"
                   >
-                    <img src={data.thumbnail} alt="" />
+                    <img src={data.thumbnail} alt="" className="rounded-lg" />
                     <p>{data.title}</p>
                     <p className="text-sm">{data.short}</p>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
           </>
         )}
         {pathname === "/" && (
-          <button className="btn mt-5 btn-secondary">More</button>
+          <Link href="/works" className="btn mt-5 btn-secondary">
+            More
+          </Link>
         )}
       </div>
     </motion.div>

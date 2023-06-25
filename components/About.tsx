@@ -12,10 +12,6 @@ export default function About() {
     <motion.div
       ref={ref}
       className="flex flex-col gap-2 justify-center items-centerm mt-5"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      exit="exit"
-      variants={fadeVariant}
     >
       <div className="flex items-center w-full gap-2 mb-5">
         <code className="uppercase font-bold">about me</code>

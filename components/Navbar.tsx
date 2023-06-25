@@ -44,10 +44,6 @@ export default function Navbar() {
         style={{ scaleX: scrollYProgress, zIndex: 99999 }}
       />
       <motion.div
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        variants={homeVariant}
         className={`navbar sticky top-0 z-10 max-w-3xl mx-auto ${
           hasScrolled
             ? "bg-base-100 bg-opacity-90 backdrop-blur-lg"
@@ -93,7 +89,7 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <a href="#contact">Contact</a>
+                  <Link href="/contact">Contact</Link>
                 </li>
               </ul>
             </form>
@@ -120,7 +116,7 @@ export default function Navbar() {
               <Link href="/works">Works </Link>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
