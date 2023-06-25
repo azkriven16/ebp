@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null!);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +30,10 @@ export default function Contact() {
         },
         (error) => {
           console.log(error.text);
+          setError(true);
+          setTimeout(() => {
+            setError(false);
+          }, 3000);
         }
       );
     const target = e.target as HTMLFormElement; // Explicitly type e.target as HTMLFormElement
@@ -89,8 +94,7 @@ export default function Contact() {
             required
             name="message"
           ></textarea>
-          <button className="btn text-white mt-10">send</button>
-          {success ? (
+          {success && (
             <motion.div
               className="alert alert-success"
               initial={{ opacity: 0, y: 100 }}
@@ -111,9 +115,31 @@ export default function Contact() {
               </svg>
               <span>Your message has been sent!</span>
             </motion.div>
-          ) : (
-            ""
           )}
+
+          {error && (
+            <motion.div
+              className="alert alert-error"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>An error occurred! Try again later.</span>
+            </motion.div>
+          )}
+          <button className="btn text-white mt-5">send</button>
         </div>
       </div>
     </form>
