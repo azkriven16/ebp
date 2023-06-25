@@ -35,7 +35,7 @@ export default function page() {
       </div>
       <p className="text-sm indent-8">{data.description}</p>
       <div className="pl-8 my-5 space-y-5 text-sm">
-        <a href={`https://${data.url}`} target="_blank" className="flex gap-2">
+        <a href={data.url} target="_blank" className="flex gap-2">
           <button className="btn btn-xs text-white">website</button>
           <p className="link">{data.url}</p>
         </a>

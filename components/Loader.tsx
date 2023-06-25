@@ -19,7 +19,6 @@ export default function Loader() {
       controls.start({ opacity: 0, y: -20, transition: { duration: 0.5 } });
     }
   }, [loading, controls]);
-  console.log(progress);
   return (
     <>
       {loading ? (
