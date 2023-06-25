@@ -4,7 +4,6 @@ import Github from "@/public/github.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { homeVariant } from "./Animation";
 declare global {
   interface Window {
     my_modal_2: HTMLDialogElement;
@@ -43,7 +42,7 @@ export default function Navbar() {
         className="progress-bar w-screen mx-auto"
         style={{ scaleX: scrollYProgress, zIndex: 99999 }}
       />
-      <motion.div
+      <div
         className={`navbar sticky top-0 z-10 max-w-3xl mx-auto ${
           hasScrolled
             ? "bg-base-100 bg-opacity-90 backdrop-blur-lg"
@@ -130,7 +129,7 @@ export default function Navbar() {
             <img src={Github.src} className="h-6 w-6" alt="" />
           </a>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 }
