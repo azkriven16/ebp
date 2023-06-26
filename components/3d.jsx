@@ -1,7 +1,8 @@
 "use client";
+import * as THREE from "three";
 import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, useProgress } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { heroVariant } from "./Animation";
 
@@ -10,6 +11,7 @@ export default function Model(props) {
   const ref = useRef();
   const progress = useProgress();
   const [loading, setLoading] = useState(true);
+  const { camera } = useThree();
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,9 +19,10 @@ export default function Model(props) {
     }, 1000);
   }, [progress]);
 
-  useFrame(() => {
-    ref.current.rotation.y += 0.01 / 2;
+  useFrame(({ clock }) => {
+    ref.current.rotation.y = clock.getElapsedTime();
   });
+
   return (
     <>
       {loading ? (
@@ -58,12 +61,7 @@ export default function Model(props) {
             position={[-0.03, 2.56, -0.74]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
-          <mesh
-            geometry={nodes.Object_8.geometry}
-            material={materials["Material.001"]}
-            position={[0, 0.35, 0]}
-            scale={15.94}
-          />
+
           <mesh
             geometry={nodes.Object_10.geometry}
             material={materials["Material.002"]}
