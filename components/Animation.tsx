@@ -19,12 +19,10 @@ export const loadingVariant = {
 
 export const heroVariant = {
   hidden: {
-    rotateY: 100,
     y: 100,
     opacity: 0,
   },
   visible: {
-    rotateY: 0,
     y: 0,
     opacity: 1,
     transition: {

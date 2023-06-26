@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Loader } from "@react-three/drei";
 import Model from "./3d";
 
 export default function CanvasContainer() {
@@ -11,7 +11,10 @@ export default function CanvasContainer() {
     >
       <ambientLight intensity={5} />
       <Model />
-      <OrbitControls />
+      <OrbitControls
+        minDistance={18} // Set the minimum zoom distance
+        maxDistance={30} // Set the maximum zoom distance
+      />
     </Canvas>
   );
 }
