@@ -13,7 +13,7 @@ export default function Bio() {
 
         <div className="flex gap-5 w-full">
           <h3 className="font-bold">2020</h3>
-          <p>Graduated Hightschool at Iloilo King of Glory Christian Academy</p>
+          <p>Graduated Highschool at Iloilo King of Glory Christian Academy</p>
         </div>
 
         <div className="flex gap-5 w-full">
