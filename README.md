@@ -1,10 +1,7 @@
 # Euger Bonete Jr's Portfolio Website
 
-<div style="display: flex; justify-content: space-between;">
-    <img src="https://imageupload.io/ib/wmxIjCnpNZny0hH_1696858016.png" alt="Portfolio Screenshot 1" width="48%">
-    <img src="https://imageupload.io/ib/XrwEgk6AypFPsUb_1696858017.png" alt="Portfolio Screenshot 2" width="48%">
-</div>
-
+![Portfolio Screenshot](https://imageupload.io/ib/wmxIjCnpNZny0hH_1696858016.png)
+![Portfolio Screenshot](https://imageupload.io/ib/XrwEgk6AypFPsUb_1696858017.png)
 
 ## Overview
 
